@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 720" width="100%" height="100%" style="background-color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="arch-shadow" x="-5%" y="-5%" width="110%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <!-- Title Banner -->
+  <rect x="30" y="15" width="890" height="45" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="475" y="44" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">WikiMove – Simple Logical System Architecture Diagram</text>
+
+  <!-- Layer 1: Presentation Layer (UI Prototype) -->
+  <g transform="translate(60, 80)" filter="url(#arch-shadow)">
+    <rect x="0" y="0" width="830" height="110" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.8"/>
+    <rect x="0" y="0" width="830" height="28" rx="10" fill="#3b82f6"/>
+    <text x="415" y="19" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">1. Presentation Layer (Static Responsive UI Prototypes)</text>
+    
+    <!-- 6 Screens -->
+    <rect x="20" y="45" width="115" height="45" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="77" y="66" text-anchor="middle" font-size="11" font-weight="600" fill="#1e3a8a">Screen 1</text>
+    <text x="77" y="80" text-anchor="middle" font-size="9" fill="#64748b">Dashboard</text>
+
+    <rect x="155" y="45" width="115" height="45" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="212" y="66" text-anchor="middle" font-size="11" font-weight="600" fill="#1e3a8a">Screen 2</text>
+    <text x="212" y="80" text-anchor="middle" font-size="9" fill="#64748b">Page Triage</text>
+
+    <rect x="290" y="45" width="115" height="45" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="347" y="66" text-anchor="middle" font-size="11" font-weight="600" fill="#1e3a8a">Screen 3</text>
+    <text x="347" y="80" text-anchor="middle" font-size="9" fill="#64748b">Page Review</text>
+
+    <rect x="425" y="45" width="115" height="45" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="482" y="66" text-anchor="middle" font-size="11" font-weight="600" fill="#1e3a8a">Screen 4</text>
+    <text x="482" y="80" text-anchor="middle" font-size="9" fill="#64748b">Migration</text>
+
+    <rect x="560" y="45" width="115" height="45" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="617" y="66" text-anchor="middle" font-size="11" font-weight="600" fill="#1e3a8a">Screen 5</text>
+    <text x="617" y="80" text-anchor="middle" font-size="9" fill="#64748b">Ownership</text>
+
+    <rect x="695" y="45" width="115" height="45" rx="6" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="752" y="66" text-anchor="middle" font-size="11" font-weight="600" fill="#1e3a8a">Screen 6</text>
+    <text x="752" y="80" text-anchor="middle" font-size="9" fill="#64748b">Risks &amp; Status</text>
+  </g>
+
+  <!-- Downward Connectors -->
+  <line x1="475" y1="190" x2="475" y2="225" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- Layer 2: Business Logic / Application Services -->
+  <g transform="translate(60, 225)" filter="url(#arch-shadow)">
+    <rect x="0" y="0" width="830" height="155" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="1.8"/>
+    <rect x="0" y="0" width="830" height="28" rx="10" fill="#475569"/>
+    <text x="415" y="19" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">2. Business Logic &amp; Management Services Layer</text>
+
+    <!-- Service Modules -->
+    <rect x="25" y="45" width="180" height="85" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="115" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">Inventory &amp; Triage Service</text>
+    <text x="115" y="90" text-anchor="middle" font-size="10" fill="#475569">• 14,000 Page Catalog</text>
+    <text x="115" y="106" text-anchor="middle" font-size="10" fill="#475569">• Triage Rate: 40 p/d</text>
+    <text x="115" y="122" text-anchor="middle" font-size="10" fill="#475569">• Decisions: Keep/Arch/Del</text>
+
+    <rect x="225" y="45" width="180" height="85" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="315" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">Ownership Custody</text>
+    <text x="315" y="90" text-anchor="middle" font-size="10" fill="#475569">• 12 Engineering Teams</text>
+    <text x="315" y="106" text-anchor="middle" font-size="10" fill="#475569">• 1 p-d/wk per team</text>
+    <text x="315" y="122" text-anchor="middle" font-size="10" fill="#475569">• Named Owner Binding</text>
+
+    <rect x="425" y="45" width="180" height="85" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="515" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">Migration Batching</text>
+    <text x="515" y="90" text-anchor="middle" font-size="10" fill="#475569">• 7,000 Kept Pages (50%)</text>
+    <text x="515" y="106" text-anchor="middle" font-size="10" fill="#475569">• Migration Rate: 25 p/d</text>
+    <text x="515" y="122" text-anchor="middle" font-size="10" fill="#475569">• Link &amp; Search QA</text>
+
+    <rect x="625" y="45" width="180" height="85" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="715" y="68" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">Project &amp; Risk Guard</text>
+    <text x="715" y="90" text-anchor="middle" font-size="10" fill="#475569">• 630 Total Person-Days</text>
+    <text x="715" y="106" text-anchor="middle" font-size="10" fill="#475569">• 42-Wk vs 39-Wk Gap</text>
+    <text x="715" y="122" text-anchor="middle" font-size="10" fill="#475569">• RMMM Triggers (R1-R4)</text>
+  </g>
+
+  <!-- Downward Connectors -->
+  <line x1="475" y1="380" x2="475" y2="415" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- Layer 3: Data & Storage Models Layer -->
+  <g transform="translate(60, 415)" filter="url(#arch-shadow)">
+    <rect x="0" y="0" width="830" height="110" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="1.8"/>
+    <rect x="0" y="0" width="830" height="28" rx="10" fill="#475569"/>
+    <text x="415" y="19" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">3. Data &amp; Traceability Model Layer (Proposed Specifications)</text>
+
+    <rect x="40" y="45" width="220" height="45" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="150" y="66" text-anchor="middle" font-size="11" font-weight="600" fill="#0f172a">Wiki Inventory Schema</text>
+    <text x="150" y="80" text-anchor="middle" font-size="9" fill="#64748b">14,000 legacy records + triage state</text>
+
+    <rect x="305" y="45" width="220" height="45" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="415" y="66" text-anchor="middle" font-size="11" font-weight="600" fill="#0f172a">RTM Traceability Matrix</text>
+    <text x="415" y="80" text-anchor="middle" font-size="9" fill="#64748b">BRD ↔ SRS (FR-01..15) ↔ Test Cases</text>
+
+    <rect x="570" y="45" width="220" height="45" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="680" y="66" text-anchor="middle" font-size="11" font-weight="600" fill="#0f172a">Risk &amp; Metric Logs</text>
+    <text x="680" y="80" text-anchor="middle" font-size="9" fill="#64748b">DRE, Defect Density, Schedule Burn</text>
+  </g>
+
+  <!-- Downward Connectors -->
+  <line x1="475" y1="525" x2="475" y2="560" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- Layer 4: External Enterprise Boundary -->
+  <g transform="translate(60, 560)" filter="url(#arch-shadow)">
+    <rect x="0" y="0" width="830" height="85" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.8"/>
+    <rect x="0" y="0" width="830" height="26" rx="10" fill="#94a3b8"/>
+    <text x="415" y="18" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">4. External Systems &amp; Platforms (Target &amp; Legacy)</text>
+
+    <rect x="60" y="38" width="320" height="35" rx="6" fill="#fee2e2" stroke="#f87171"/>
+    <text x="220" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#991b1b">Legacy Platform (Licence Exp: ~39 Wks / 9 Mos)</text>
+
+    <rect x="450" y="38" width="320" height="35" rx="6" fill="#dcfce7" stroke="#4ade80"/>
+    <text x="610" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#15803d">New Knowledge Platform (Modern Search &amp; Custody)</text>
+  </g>
+
+  <!-- Caption -->
+  <text x="475" y="695" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">Figure 1.7: WikiMove Simple Logical Architecture Diagram presenting layered decomposition of the proposed system.</text>
+</svg>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WikiMove – Content Ownership &amp; Governance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">W</div>
+        <div class="brand-text">
+          <h1>WikiMove</h1>
+          <p>Academic Project Prototype</p>
+        </div>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="dashboard.html"><span>📊</span> Dashboard</a></li>
+        <li class="nav-item"><a href="triage.html"><span>📋</span> Page Triage</a></li>
+        <li class="nav-item"><a href="review.html"><span>🔍</span> Page Review</a></li>
+        <li class="nav-item"><a href="migration.html"><span>🚀</span> Migration Status</a></li>
+        <li class="nav-item active"><a href="ownership.html"><span>👥</span> Ownership Mgmt</a></li>
+        <li class="nav-item"><a href="risks.html"><span>⚠️</span> Risks &amp; Schedule</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <p><strong>Governance:</strong> 90-Day Cycle</p>
+        <p>12 Teams Accountable</p>
+        <p style="margin-top: 6px; font-size: 10px;">SE &amp; PM Academic Submission</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-wrapper">
+      <header class="top-bar">
+        <div class="page-title">
+          <h2>Screen 5: Content Ownership &amp; Custody Management</h2>
+        </div>
+        <div class="top-badge">
+          <span>🛡️</span> Zero Orphan Policy (Mitigates Risk 4: Exposure 0.5)
+        </div>
+      </header>
+
+      <div class="content-body">
+        <div class="academic-notice">
+          <span><strong>Post-Migration Governance:</strong> Prevents content decay. Every migrated page is mapped to a named custodian who must revalidate technical accuracy every 90 days.</span>
+          <span class="badge badge-green">Lifecycle Enforced</span>
+        </div>
+
+        <!-- Metric Cards -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-title">Migrated Kept Pages</div>
+            <div class="metric-value">2,100</div>
+            <div class="metric-sub">Certified on Target Platform</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Assigned Named Owners</div>
+            <div class="metric-value" style="color: var(--success-color);">2,085</div>
+            <div class="metric-sub">99.3% Custody Coverage</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Unassigned / Orphaned</div>
+            <div class="metric-value" style="color: var(--danger-color);">15</div>
+            <div class="metric-sub">Escalated to Technical Writer</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Revalidation Cycle</div>
+            <div class="metric-value" style="color: var(--primary-color);">90 Days</div>
+            <div class="metric-sub">Automated Reminder Schedule</div>
+          </div>
+        </div>
+
+        <!-- Ownership Table Panel -->
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Active Content Ownership Registry</h3>
+            <button class="btn btn-primary">Bulk Reassign Owners</button>
+          </div>
+          <div class="panel-body">
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Wiki Page Title</th>
+                    <th>Engineering Team</th>
+                    <th>Legacy Owner</th>
+                    <th>Assigned Named Owner</th>
+                    <th>Next Review Date</th>
+                    <th>Ownership Status</th>
+                    <th style="text-align: center;">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Payment Gateway v2 API Specs</strong></td>
+                    <td>Team 1 - Payments Core</td>
+                    <td><span style="color: var(--text-muted);">Jane Doe (Departed)</span></td>
+                    <td><strong>Alex Rivera</strong> (Tech Lead)</td>
+                    <td>2026-11-15 (in 44 days)</td>
+                    <td><span class="badge badge-green">Active Custody</span></td>
+                    <td style="text-align: center;"><button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px;">Edit Owner</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>OAuth2 Architecture &amp; Token Claims</strong></td>
+                    <td>Team 2 - Auth &amp; Identity</td>
+                    <td><span style="color: var(--text-muted);">John Smith (Departed)</span></td>
+                    <td><strong>Priya Patel</strong> (Staff Architect)</td>
+                    <td>2026-11-20 (in 49 days)</td>
+                    <td><span class="badge badge-green">Active Custody</span></td>
+                    <td style="text-align: center;"><button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px;">Edit Owner</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Microservices Topology Map 2026</strong></td>
+                    <td>Team 1 - Payments Core</td>
+                    <td><span style="color: var(--text-muted);">Unassigned</span></td>
+                    <td><strong>Alex Rivera</strong> (Tech Lead)</td>
+                    <td>2026-12-10 (in 69 days)</td>
+                    <td><span class="badge badge-green">Active Custody</span></td>
+                    <td style="text-align: center;"><button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px;">Edit Owner</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Kafka Streaming Topic Conventions</strong></td>
+                    <td>Team 3 - Data Platform</td>
+                    <td><span style="color: var(--text-muted);">David Miller (Departed)</span></td>
+                    <td><strong>Marcus Chen</strong> (Sr Data Eng)</td>
+                    <td>2026-10-18 (in 16 days)</td>
+                    <td><span class="badge badge-amber">Review Due Soon</span></td>
+                    <td style="text-align: center;"><button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px;">Edit Owner</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Legacy Database Migration Scripts 2020</strong></td>
+                    <td>Team 3 - Data Platform</td>
+                    <td><span style="color: var(--text-muted);">Unknown</span></td>
+                    <td><span style="color: var(--danger-color); font-weight: 700;">Unassigned</span></td>
+                    <td>Overdue</td>
+                    <td><span class="badge badge-red">Orphan Alert (R4)</span></td>
+                    <td style="text-align: center;"><button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px; background: var(--danger-color);">Assign Now</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Elasticsearch Cluster Sharding Guidelines</strong></td>
+                    <td>Team 4 - Search Platform</td>
+                    <td><span style="color: var(--text-muted);">Emily Watson</span></td>
+                    <td><strong>Emily Watson</strong> (Staff Eng)</td>
+                    <td>2027-01-05 (in 95 days)</td>
+                    <td><span class="badge badge-green">Active Custody</span></td>
+                    <td style="text-align: center;"><button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px;">Edit Owner</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

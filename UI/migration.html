@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WikiMove – Migration Dashboard &amp; Tracking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">W</div>
+        <div class="brand-text">
+          <h1>WikiMove</h1>
+          <p>Academic Project Prototype</p>
+        </div>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="dashboard.html"><span>📊</span> Dashboard</a></li>
+        <li class="nav-item"><a href="triage.html"><span>📋</span> Page Triage</a></li>
+        <li class="nav-item"><a href="review.html"><span>🔍</span> Page Review</a></li>
+        <li class="nav-item active"><a href="migration.html"><span>🚀</span> Migration Status</a></li>
+        <li class="nav-item"><a href="ownership.html"><span>👥</span> Ownership Mgmt</a></li>
+        <li class="nav-item"><a href="risks.html"><span>⚠️</span> Risks &amp; Schedule</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <p><strong>Migration Rate:</strong> 25 p/d</p>
+        <p>7,000 Kept Pages</p>
+        <p style="margin-top: 6px; font-size: 10px;">SE &amp; PM Academic Submission</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-wrapper">
+      <header class="top-bar">
+        <div class="page-title">
+          <h2>Screen 4: Migration Execution &amp; Batch Tracking</h2>
+        </div>
+        <div class="top-badge">
+          <span>⚡</span> Migration Throughput: 25 pages / person-day
+        </div>
+      </header>
+
+      <div class="content-body">
+        <div class="academic-notice">
+          <span><strong>Migration Target:</strong> Total Kept Pages = 14,000 × 50% = 7,000 pages. Total Migration Effort = 7,000 / 25 = 280 person-days.</span>
+          <span class="badge badge-blue">Case Study Exact Formula</span>
+        </div>
+
+        <!-- Metric Cards -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-title">Total Pages to Migrate</div>
+            <div class="metric-value">7,000</div>
+            <div class="metric-sub">50% Kept from 14,000</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Successfully Migrated</div>
+            <div class="metric-value" style="color: var(--success-color);">2,100</div>
+            <div class="metric-sub">Certified on New Platform (30%)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Validation Pending</div>
+            <div class="metric-value" style="color: var(--warning-color);">420</div>
+            <div class="metric-sub">Awaiting Link &amp; Search QA</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Migration Pending</div>
+            <div class="metric-value" style="color: var(--primary-color);">4,460</div>
+            <div class="metric-sub">Batched in Sprint Pipelines</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Failed / Blocked</div>
+            <div class="metric-value" style="color: var(--danger-color);">20</div>
+            <div class="metric-sub">Broken macros / unmapped assets</div>
+          </div>
+        </div>
+
+        <!-- Overall Progress Bar Panel -->
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Overall Migration Execution Burn-down</h3>
+            <span class="badge badge-green">30.0% Completed</span>
+          </div>
+          <div class="panel-body">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <span style="font-weight: 600;">Migrated Content Progress (2,100 / 7,000 Pages)</span>
+              <span style="font-weight: 700; color: var(--success-color);">2,100 of 7,000 Pages</span>
+            </div>
+            <div class="progress-container" style="height: 16px;">
+              <div class="progress-bar progress-bar-success" style="width: 30%;"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); margin-top: 6px;">
+              <span>Start: Week 1</span>
+              <span>Total Migration Effort: 280 person-days</span>
+              <span>Target: Week 42 (Licence Expiry at Wk 39)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Migration Batches Table -->
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Sprint Migration Batches (25 pages / person-day rate)</h3>
+            <button class="btn btn-primary">+ Create New Batch</button>
+          </div>
+          <div class="panel-body">
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Batch ID</th>
+                    <th>Batch Name / Domain Scope</th>
+                    <th>Target Pages</th>
+                    <th>Execution Team</th>
+                    <th>Validation Status</th>
+                    <th>Link Integrity (NFR-01)</th>
+                    <th>Batch Progress</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>BATCH-01</code></td>
+                    <td>Payments Core &amp; Billing Guides</td>
+                    <td>500 pages</td>
+                    <td>Team 1 + TW</td>
+                    <td><span class="badge badge-green">Certified</span></td>
+                    <td>100% Valid (0 Broken)</td>
+                    <td>
+                      <div class="progress-container" style="width: 100px; margin: 0;">
+                        <div class="progress-bar progress-bar-success" style="width: 100%;"></div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>BATCH-02</code></td>
+                    <td>Auth, OAuth2 &amp; IAM Security</td>
+                    <td>600 pages</td>
+                    <td>Team 2 + TW</td>
+                    <td><span class="badge badge-green">Certified</span></td>
+                    <td>100% Valid (0 Broken)</td>
+                    <td>
+                      <div class="progress-container" style="width: 100px; margin: 0;">
+                        <div class="progress-bar progress-bar-success" style="width: 100%;"></div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>BATCH-03</code></td>
+                    <td>Data Engineering &amp; ETL Pipelines</td>
+                    <td>1,000 pages</td>
+                    <td>Team 3 + TW</td>
+                    <td><span class="badge badge-green">Certified</span></td>
+                    <td>99.8% Valid (2 Redirected)</td>
+                    <td>
+                      <div class="progress-container" style="width: 100px; margin: 0;">
+                        <div class="progress-bar progress-bar-success" style="width: 100%;"></div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>BATCH-04</code></td>
+                    <td>Search &amp; Recommendation Engine</td>
+                    <td>800 pages</td>
+                    <td>Team 4 + TW</td>
+                    <td><span class="badge badge-amber">Validation Pending</span></td>
+                    <td>Testing in Progress (420 pg)</td>
+                    <td>
+                      <div class="progress-container" style="width: 100px; margin: 0;">
+                        <div class="progress-bar progress-bar-warning" style="width: 52%;"></div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>BATCH-05</code></td>
+                    <td>Mobile SDKs &amp; Frontend Components</td>
+                    <td>1,200 pages</td>
+                    <td>Team 5, 6</td>
+                    <td><span class="badge badge-blue">Queued</span></td>
+                    <td>Pending Pre-Migration Scan</td>
+                    <td>
+                      <div class="progress-container" style="width: 100px; margin: 0;">
+                        <div class="progress-bar" style="width: 0%;"></div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

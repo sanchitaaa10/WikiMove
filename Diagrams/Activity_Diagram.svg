@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 820" width="100%" height="100%" style="background-color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="act-shadow" x="-5%" y="-5%" width="110%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.06" />
+    </filter>
+    <marker id="act-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0 1, 10 5, 0 9" fill="#334155" />
+    </marker>
+  </defs>
+
+  <!-- Title Banner -->
+  <rect x="30" y="15" width="890" height="45" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="475" y="44" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">WikiMove – UML Activity Diagram: Content Triage &amp; Classification Logic</text>
+
+  <!-- Start Node -->
+  <circle cx="475" cy="95" r="14" fill="#0f172a"/>
+  <line x1="475" y1="109" x2="475" y2="135" stroke="#334155" stroke-width="1.8" marker-end="url(#act-arrow)"/>
+
+  <!-- Action 1: Ingest Legacy Inventory -->
+  <rect x="365" y="135" width="220" height="45" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" filter="url(#act-shadow)"/>
+  <text x="475" y="162" text-anchor="middle" font-size="12" font-weight="600" fill="#0f172a">Ingest Legacy Wiki Page (14,000)</text>
+  <line x1="475" y1="180" x2="475" y2="210" stroke="#334155" stroke-width="1.8" marker-end="url(#act-arrow)"/>
+
+  <!-- Action 2: Assign to Team -->
+  <rect x="355" y="210" width="240" height="45" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" filter="url(#act-shadow)"/>
+  <text x="475" y="237" text-anchor="middle" font-size="12" font-weight="600" fill="#0f172a">Assign Page to Domain Team (1..12)</text>
+  <line x1="475" y1="255" x2="475" y2="290" stroke="#334155" stroke-width="1.8" marker-end="url(#act-arrow)"/>
+
+  <!-- Decision Diamond 1: Current & Accurate? -->
+  <polygon points="475 290, 565 330, 475 370, 385 330" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.8" filter="url(#act-shadow)"/>
+  <text x="475" y="327" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">Is Content</text>
+  <text x="475" y="342" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">Current &amp; Valid?</text>
+
+  <!-- Branch: [No / Outdated] -->
+  <line x1="385" y1="330" x2="210" y2="330" stroke="#334155" stroke-width="1.8" marker-end="url(#act-arrow)"/>
+  <text x="300" y="320" text-anchor="middle" font-size="11" font-weight="600" fill="#ef4444">[No (~50% / 7,000)]</text>
+
+  <!-- Decision Diamond 2: Compliance/Historical value? -->
+  <polygon points="210 330, 280 370, 210 410, 140 370" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.8" filter="url(#act-shadow)"/>
+  <text x="210" y="367" text-anchor="middle" font-size="10" font-weight="700" fill="#1e3a8a">Historical /</text>
+  <text x="210" y="380" text-anchor="middle" font-size="10" font-weight="700" fill="#1e3a8a">Legal Value?</text>
+
+  <!-- Sub-branch: Archive -->
+  <line x1="210" y1="410" x2="210" y2="470" stroke="#334155" stroke-width="1.8" marker-end="url(#act-arrow)"/>
+  <text x="235" y="440" font-size="11" font-weight="600" fill="#f59e0b">[Yes]</text>
+
+  <rect x="125" y="470" width="170" height="45" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5" filter="url(#act-shadow)"/>
+  <text x="210" y="497" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">Action: ARCHIVE</text>
+
+  <!-- Sub-branch: Delete -->
+  <line x1="140" y1="370" x2="80" y2="370" stroke="#334155" stroke-width="1.8"/>
+  <line x1="80" y1="370" x2="80" y2="470" stroke="#334155" stroke-width="1.8" marker-end="url(#act-arrow)"/>
+  <text x="105" y="360" font-size="11" font-weight="600" fill="#ef4444">[No]</text>
+
+  <rect x="10" y="470" width="105" height="45" rx="10" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5" filter="url(#act-shadow)"/>
+  <text x="62" y="497" text-anchor="middle" font-size="12" font-weight="700" fill="#b91c1c">DELETE</text>
+
+  <!-- Branch: [Yes / Current (Keep)] -->
+  <line x1="475" y1="370" x2="475" y2="415" stroke="#334155" stroke-width="1.8" marker-end="url(#act-arrow)"/>
+  <text x="500" y="395" font-size="11" font-weight="600" fill="#16a34a">[Yes (~50% / 7,000)]</text>
+
+  <!-- Action: Assign Owner (Mandatory for kept) -->
+  <rect x="365" y="415" width="220" height="45" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5" filter="url(#act-shadow)"/>
+  <text x="475" y="442" text-anchor="middle" font-size="12" font-weight="700" fill="#15803d">Designate Named Content Owner</text>
+  <line x1="475" y1="460" x2="475" y2="495" stroke="#334155" stroke-width="1.8" marker-end="url(#act-arrow)"/>
+
+  <!-- Decision: Owner Accepted? -->
+  <polygon points="475 495, 555 530, 475 565, 395 530" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.8" filter="url(#act-shadow)"/>
+  <text x="475" y="527" text-anchor="middle" font-size="10" font-weight="700" fill="#1e3a8a">Owner Assigned</text>
+  <text x="475" y="541" text-anchor="middle" font-size="10" font-weight="700" fill="#1e3a8a">&amp; Accepted?</text>
+
+  <!-- If No Owner, Escalate -->
+  <line x1="395" y1="530" x2="330" y2="530" stroke="#334155" stroke-width="1.8" marker-end="url(#act-arrow)"/>
+  <text x="365" y="520" text-anchor="middle" font-size="10" font-weight="600" fill="#ef4444">[No]</text>
+  <rect x="230" y="510" width="100" height="40" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="1.2"/>
+  <text x="280" y="534" text-anchor="middle" font-size="10" font-weight="600" fill="#b91c1c">Escalate to TW</text>
+  <line x1="280" y1="510" x2="280" y2="440" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="3,3"/>
+  <line x1="280" y1="440" x2="365" y2="440" stroke="#ef4444" stroke-width="1.2" marker-end="url(#act-arrow)"/>
+
+  <!-- If Yes Owner, Add to Migration Batch -->
+  <line x1="475" y1="565" x2="475" y2="600" stroke="#334155" stroke-width="1.8" marker-end="url(#act-arrow)"/>
+  <text x="495" y="585" font-size="11" font-weight="600" fill="#16a34a">[Yes]</text>
+
+  <rect x="360" y="600" width="230" height="45" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" filter="url(#act-shadow)"/>
+  <text x="475" y="627" text-anchor="middle" font-size="12" font-weight="600" fill="#1e3a8a">Queue in Migration Batch (25 p/d)</text>
+  <line x1="475" y1="645" x2="475" y2="675" stroke="#334155" stroke-width="1.8" marker-end="url(#act-arrow)"/>
+
+  <!-- Action: Migrate & Validate Links -->
+  <rect x="350" y="675" width="250" height="45" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5" filter="url(#act-shadow)"/>
+  <text x="475" y="702" text-anchor="middle" font-size="12" font-weight="700" fill="#15803d">Migrate Page &amp; Validate Links / Search</text>
+
+  <!-- Merge Node -->
+  <!-- Connect Archive & Delete to End -->
+  <line x1="62" y1="515" x2="62" y2="750" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="210" y1="515" x2="210" y2="750" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="62" y1="750" x2="455" y2="750" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="475" y1="720" x2="475" y2="740" stroke="#334155" stroke-width="1.8" marker-end="url(#act-arrow)"/>
+
+  <!-- Final End Node -->
+  <circle cx="475" cy="760" r="14" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="475" cy="760" r="8" fill="#0f172a"/>
+
+  <!-- Legend Box on Right -->
+  <g transform="translate(680, 200)" filter="url(#act-shadow)">
+    <rect x="0" y="0" width="240" height="240" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="120" y="24" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">Academic Parameters</text>
+    <line x1="10" y1="34" x2="230" y2="34" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="14" y="56" font-size="11" fill="#334155">• Total Pages: 14,000</text>
+    <text x="14" y="76" font-size="11" fill="#334155">• Outdated: 50% (7,000)</text>
+    <text x="14" y="96" font-size="11" fill="#334155">• Kept: 50% (7,000)</text>
+    <text x="14" y="116" font-size="11" fill="#334155">• Triage Rate: 40 p/d</text>
+    <text x="14" y="136" font-size="11" fill="#334155">• Migration Rate: 25 p/d</text>
+    <text x="14" y="156" font-size="11" fill="#334155">• Total Effort: 630 person-days</text>
+    <text x="14" y="176" font-size="11" fill="#334155">• Capacity: 15 p-d/week</text>
+    <text x="14" y="196" font-size="11" fill="#ef4444">• Duration: 42 weeks</text>
+    <text x="14" y="216" font-size="11" fill="#ef4444">• Licence: 39 wks (+3 wk gap)</text>
+  </g>
+
+  <!-- Caption -->
+  <text x="475" y="805" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">Figure 1.5: WikiMove UML Activity Diagram detailing decision flow, triage branching, and owner governance logic.</text>
+</svg>

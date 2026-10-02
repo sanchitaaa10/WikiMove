@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WikiMove – Executive Migration Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">W</div>
+        <div class="brand-text">
+          <h1>WikiMove</h1>
+          <p>Academic Project Prototype</p>
+        </div>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item active"><a href="dashboard.html"><span>📊</span> Dashboard</a></li>
+        <li class="nav-item"><a href="triage.html"><span>📋</span> Page Triage</a></li>
+        <li class="nav-item"><a href="review.html"><span>🔍</span> Page Review</a></li>
+        <li class="nav-item"><a href="migration.html"><span>🚀</span> Migration Status</a></li>
+        <li class="nav-item"><a href="ownership.html"><span>👥</span> Ownership Mgmt</a></li>
+        <li class="nav-item"><a href="risks.html"><span>⚠️</span> Risks &amp; Schedule</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <p><strong>Licence Expiry:</strong> 9 Months</p>
+        <p>Capacity: 15 p-d / week</p>
+        <p style="margin-top: 6px; font-size: 10px;">SE &amp; PM Academic Submission</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-wrapper">
+      <header class="top-bar">
+        <div class="page-title">
+          <h2>Screen 1: Project Overview &amp; Migration Dashboard</h2>
+        </div>
+        <div class="top-badge">
+          <span>⏳</span> Licence Period: ~39 Weeks (Schedule Gap: +3.0 Weeks)
+        </div>
+      </header>
+
+      <div class="content-body">
+        <div class="academic-notice">
+          <span><strong>Academic Prototype Notice:</strong> Demonstrating proposed system UI representation. No backend, database, or production migration engine.</span>
+          <span class="badge badge-blue">Case Study Data Grounded</span>
+        </div>
+
+        <!-- Metric Cards Grid -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-title">Total Legacy Pages</div>
+            <div class="metric-value">14,000</div>
+            <div class="metric-sub">Built over 11 years (100%)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Reviewed / Triaged</div>
+            <div class="metric-value">5,600</div>
+            <div class="metric-sub">Rate: 40 pages / person-day</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Target Kept Pages</div>
+            <div class="metric-value" style="color: var(--success-color);">7,000</div>
+            <div class="metric-sub">50% Assumption (Clean Content)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Archived / Deleted</div>
+            <div class="metric-value" style="color: var(--danger-color);">7,000</div>
+            <div class="metric-sub">Outdated / Redundant (50%)</div>
+          </div>
+        </div>
+
+        <!-- Middle Panels Grid -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-bottom: 24px;">
+          <!-- Progress & Schedule Panel -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Migration Progress &amp; Mathematical Schedule Gap</h3>
+              <span class="badge badge-amber">Baseline 42 Wks vs Licence 39 Wks</span>
+            </div>
+            <div class="panel-body">
+              <div style="margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                  <span style="font-weight: 600;">Overall Triage Progress (5,600 / 14,000)</span>
+                  <span style="font-weight: 700; color: var(--primary-color);">40.0%</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar" style="width: 40%;"></div>
+                </div>
+                <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Effort required: 350 person-days (14,000 / 40 p-d)</p>
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                  <span style="font-weight: 600;">Kept Page Migration Progress (1,750 / 7,000)</span>
+                  <span style="font-weight: 700; color: var(--success-color);">25.0%</span>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar progress-bar-success" style="width: 25%;"></div>
+                </div>
+                <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Effort required: 280 person-days (7,000 / 25 p-d)</p>
+              </div>
+
+              <div style="background: var(--bg-secondary); padding: 14px; border-radius: var(--radius-sm); font-size: 12px;">
+                <strong>Mathematical Consistency Check:</strong><br>
+                • Total Effort = 350 (Triage) + 280 (Migration) = <strong>630 person-days</strong><br>
+                • Team Capacity = 3 (TW) + 12 (12 Teams × 1) = <strong>15 person-days/week</strong><br>
+                • Estimated Duration = 630 / 15 = <strong>42.0 weeks</strong> | Licence = 9 mos × 4.33 = <strong>39.0 weeks</strong><br>
+                • Schedule Overrun = 42 − 39 = <strong style="color: var(--danger-color);">+3.0 weeks deficit</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Major Risks Card -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Top Critical Risk</h3>
+              <span class="badge badge-red">Rank 1</span>
+            </div>
+            <div class="panel-body">
+              <div style="background: var(--danger-light); border: 1px solid var(--danger-border); padding: 14px; border-radius: var(--radius-sm); margin-bottom: 14px;">
+                <h4 style="color: var(--danger-color); font-size: 13px; font-weight: 700; margin-bottom: 4px;">Risk 2: Teams do not review pages</h4>
+                <p style="font-size: 12px; color: #7f1d1d; margin-bottom: 8px;">Engineering teams have zero dedicated time; review competes with sprint deliverables.</p>
+                <div style="font-size: 11px; color: #991b1b; display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+                  <span><strong>Probability:</strong> 0.6</span>
+                  <span><strong>Impact:</strong> 7</span>
+                  <span style="grid-column: span 2;"><strong>Exposure:</strong> 0.6 × 7 = <strong>4.2 (Highest)</strong></span>
+                </div>
+              </div>
+              <div style="font-size: 12px; color: var(--text-muted);">
+                <strong>Mitigation Strategy:</strong><br>
+                CTO executive mandate enforcing 1 person-day/week per team, weekly automated burn-down tracking, and technical writer triage pre-filtering.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Panel: Team Allocation & Weekly Cadence -->
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Weekly Review Capacity Allocation (15 person-days / week)</h3>
+          </div>
+          <div class="panel-body">
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Resource Role</th>
+                    <th>Weekly Allocation</th>
+                    <th>Weekly Triage Capacity</th>
+                    <th>Assigned Domain Scope</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Technical Writer (Lead)</strong></td>
+                    <td>3 person-days / week</td>
+                    <td>120 pages / week</td>
+                    <td>Orphaned pages, QA validation, Project coordination</td>
+                    <td><span class="badge badge-green">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>12 Engineering Teams (1..12)</strong></td>
+                    <td>12 person-days / week (1 p-d each)</td>
+                    <td>480 pages / week</td>
+                    <td>Domain-specific technical architecture &amp; API guides</td>
+                    <td><span class="badge badge-amber">At Risk (R2)</span></td>
+                  </tr>
+                  <tr style="background: #f8fafc; font-weight: 700;">
+                    <td>Total Capacity</td>
+                    <td>15 person-days / week</td>
+                    <td>600 pages / week</td>
+                    <td>14,000 Page Legacy Inventory</td>
+                    <td><span class="badge badge-blue">Baseline Target</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

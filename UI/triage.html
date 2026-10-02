@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WikiMove – Page Triage Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">W</div>
+        <div class="brand-text">
+          <h1>WikiMove</h1>
+          <p>Academic Project Prototype</p>
+        </div>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="dashboard.html"><span>📊</span> Dashboard</a></li>
+        <li class="nav-item active"><a href="triage.html"><span>📋</span> Page Triage</a></li>
+        <li class="nav-item"><a href="review.html"><span>🔍</span> Page Review</a></li>
+        <li class="nav-item"><a href="migration.html"><span>🚀</span> Migration Status</a></li>
+        <li class="nav-item"><a href="ownership.html"><span>👥</span> Ownership Mgmt</a></li>
+        <li class="nav-item"><a href="risks.html"><span>⚠️</span> Risks &amp; Schedule</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <p><strong>Triage Rate:</strong> 40 p/d</p>
+        <p>14,000 Total Pages</p>
+        <p style="margin-top: 6px; font-size: 10px;">SE &amp; PM Academic Submission</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-wrapper">
+      <header class="top-bar">
+        <div class="page-title">
+          <h2>Screen 2: Wiki Page Triage Queue</h2>
+        </div>
+        <div class="top-badge">
+          <span>🎯</span> Triage Benchmark: 40 pages / person-day
+        </div>
+      </header>
+
+      <div class="content-body">
+        <div class="academic-notice">
+          <span><strong>Decision Classification Rules:</strong> KEEP = Current content (50% target) | ARCHIVE = Inactive but compliance/audit retention | DELETE = Outdated, redundant, superseded.</span>
+          <span class="badge badge-blue">Interactive Mockup</span>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="panel" style="margin-bottom: 16px;">
+          <div class="panel-body" style="padding: 14px 20px; display: flex; gap: 16px; align-items: center; justify-content: space-between;">
+            <div style="display: flex; gap: 12px; align-items: center; flex-grow: 1;">
+              <input type="text" class="form-control" placeholder="Search page title, ID, or keywords..." style="max-width: 320px;" value="">
+              <select class="form-control" style="max-width: 180px;">
+                <option>All 12 Engineering Teams</option>
+                <option>Team 1 - Payments Core</option>
+                <option>Team 2 - Auth &amp; Identity</option>
+                <option>Team 3 - Data Platform</option>
+                <option>Team 4 - Search &amp; Index</option>
+              </select>
+              <select class="form-control" style="max-width: 160px;">
+                <option>Status: Pending Review</option>
+                <option>Status: Triaged (Kept)</option>
+                <option>Status: Triaged (Archived)</option>
+                <option>Status: Triaged (Deleted)</option>
+              </select>
+            </div>
+            <div>
+              <span style="font-size: 12px; color: var(--text-muted);">Queue: <strong>14,000 Total</strong> (8,400 Pending)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Triage Data Table -->
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Assigned Page Triage Queue</h3>
+            <span class="badge badge-blue">40 Pages Daily Quota</span>
+          </div>
+          <div class="panel-body">
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Page ID</th>
+                    <th>Page Title</th>
+                    <th>Engineering Team</th>
+                    <th>Last Updated</th>
+                    <th>Review Status</th>
+                    <th>Suggested Action</th>
+                    <th style="text-align: center;">Triage Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>WP-01042</code></td>
+                    <td><strong>Payment Gateway v2 API Specs</strong></td>
+                    <td>Team 1 - Payments Core</td>
+                    <td>2026-08-14 (2 mos ago)</td>
+                    <td><span class="badge badge-blue">Pending</span></td>
+                    <td><span class="badge badge-green">Keep</span></td>
+                    <td style="text-align: center;">
+                      <div class="btn-group" style="justify-content: center;">
+                        <button class="btn btn-keep">Keep</button>
+                        <button class="btn btn-archive">Archive</button>
+                        <button class="btn btn-delete">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>WP-00819</code></td>
+                    <td><strong>Jenkins CI/CD Build Cluster v1 Setup</strong></td>
+                    <td>Team 3 - DevOps &amp; Infra</td>
+                    <td>2018-04-12 (8 yrs ago)</td>
+                    <td><span class="badge badge-amber">Outdated</span></td>
+                    <td><span class="badge badge-red">Delete</span></td>
+                    <td style="text-align: center;">
+                      <div class="btn-group" style="justify-content: center;">
+                        <button class="btn btn-keep">Keep</button>
+                        <button class="btn btn-archive">Archive</button>
+                        <button class="btn btn-delete">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>WP-03412</code></td>
+                    <td><strong>OAuth2 Architecture &amp; Token Claims</strong></td>
+                    <td>Team 2 - Auth &amp; Identity</td>
+                    <td>2026-05-20 (5 mos ago)</td>
+                    <td><span class="badge badge-blue">Pending</span></td>
+                    <td><span class="badge badge-green">Keep</span></td>
+                    <td style="text-align: center;">
+                      <div class="btn-group" style="justify-content: center;">
+                        <button class="btn btn-keep">Keep</button>
+                        <button class="btn btn-archive">Archive</button>
+                        <button class="btn btn-delete">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>WP-09214</code></td>
+                    <td><strong>Q3 2017 Team Lunch Roster &amp; Notes</strong></td>
+                    <td>Team 5 - Mobile Apps</td>
+                    <td>2017-09-02 (9 yrs ago)</td>
+                    <td><span class="badge badge-red">Dead Content</span></td>
+                    <td><span class="badge badge-red">Delete</span></td>
+                    <td style="text-align: center;">
+                      <div class="btn-group" style="justify-content: center;">
+                        <button class="btn btn-keep">Keep</button>
+                        <button class="btn btn-archive">Archive</button>
+                        <button class="btn btn-delete">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>WP-04771</code></td>
+                    <td><strong>Post-Mortem: Incident INC-2021-08-04</strong></td>
+                    <td>Team 4 - Search Platform</td>
+                    <td>2021-08-06 (5 yrs ago)</td>
+                    <td><span class="badge badge-gray">Historical</span></td>
+                    <td><span class="badge badge-amber">Archive</span></td>
+                    <td style="text-align: center;">
+                      <div class="btn-group" style="justify-content: center;">
+                        <button class="btn btn-keep">Keep</button>
+                        <button class="btn btn-archive">Archive</button>
+                        <button class="btn btn-delete">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>WP-11204</code></td>
+                    <td><strong>Microservices Topology Map 2026</strong></td>
+                    <td>Team 1 - Payments Core</td>
+                    <td>2026-09-10 (1 mo ago)</td>
+                    <td><span class="badge badge-blue">Pending</span></td>
+                    <td><span class="badge badge-green">Keep</span></td>
+                    <td style="text-align: center;">
+                      <div class="btn-group" style="justify-content: center;">
+                        <button class="btn btn-keep">Keep</button>
+                        <button class="btn btn-archive">Archive</button>
+                        <button class="btn btn-delete">Delete</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

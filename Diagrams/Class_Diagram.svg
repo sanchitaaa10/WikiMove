@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="100%" height="100%" style="background-color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="cls-shadow" x="-5%" y="-5%" width="110%" height="112%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.08" />
+    </filter>
+    <marker id="cls-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0 1, 10 5, 0 9" fill="#334155" />
+    </marker>
+    <marker id="diamond" viewBox="0 0 16 16" refX="16" refY="8" markerWidth="8" markerHeight="8" orient="auto">
+      <polygon points="8 0, 16 8, 8 16, 0 8" fill="#334155" />
+    </marker>
+  </defs>
+
+  <!-- Title Banner -->
+  <rect x="30" y="15" width="940" height="45" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="500" y="44" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">WikiMove – UML Class Diagram</text>
+
+  <!-- 1. WikiPage (Central Class) -->
+  <g transform="translate(370, 90)" filter="url(#cls-shadow)">
+    <rect x="0" y="0" width="260" height="235" rx="6" fill="#ffffff" stroke="#2563eb" stroke-width="1.8"/>
+    <rect x="0" y="0" width="260" height="32" rx="6" fill="#2563eb"/>
+    <text x="130" y="21" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">WikiPage</text>
+    <line x1="0" y1="32" x2="260" y2="32" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="12" y="52" font-size="11" fill="#334155">+ pageId : String [14000 total]</text>
+    <text x="12" y="70" font-size="11" fill="#334155">+ title : String</text>
+    <text x="12" y="88" font-size="11" fill="#334155">+ legacyUrl : String</text>
+    <text x="12" y="106" font-size="11" fill="#334155">+ lastUpdated : Date</text>
+    <text x="12" y="124" font-size="11" fill="#334155">+ status : PageStatus</text>
+    <text x="12" y="142" font-size="11" fill="#334155">+ isKept : Boolean [50% / 7000]</text>
+    <line x1="0" y1="154" x2="260" y2="154" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="12" y="174" font-size="11" fill="#334155">+ classify(decision : TriageDecision)</text>
+    <text x="12" y="192" font-size="11" fill="#334155">+ assignOwner(owner : Owner)</text>
+    <text x="12" y="210" font-size="11" fill="#334155">+ markMigrated(targetUrl : String)</text>
+    <text x="12" y="226" font-size="11" fill="#334155">+ validateIntegrity() : Boolean</text>
+  </g>
+
+  <!-- 2. TriageDecision -->
+  <g transform="translate(50, 90)" filter="url(#cls-shadow)">
+    <rect x="0" y="0" width="230" height="175" rx="6" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+    <rect x="0" y="0" width="230" height="30" rx="6" fill="#f1f5f9"/>
+    <text x="115" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">TriageDecision</text>
+    <line x1="0" y1="30" x2="230" y2="30" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="12" y="50" font-size="11" fill="#334155">+ decisionId : String</text>
+    <text x="12" y="68" font-size="11" fill="#334155">+ action : ActionEnum</text>
+    <text x="24" y="86" font-size="10" fill="#64748b">[KEEP | ARCHIVE | DELETE]</text>
+    <text x="12" y="104" font-size="11" fill="#334155">+ decidedAt : Timestamp</text>
+    <text x="12" y="122" font-size="11" fill="#334155">+ reviewerComment : String</text>
+    <line x1="0" y1="134" x2="230" y2="134" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="12" y="154" font-size="11" fill="#334155">+ recordAction() : Void</text>
+  </g>
+
+  <!-- 3. Owner -->
+  <g transform="translate(720, 90)" filter="url(#cls-shadow)">
+    <rect x="0" y="0" width="230" height="175" rx="6" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+    <rect x="0" y="0" width="230" height="30" rx="6" fill="#f1f5f9"/>
+    <text x="115" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Owner</text>
+    <line x1="0" y1="30" x2="230" y2="30" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="12" y="50" font-size="11" fill="#334155">+ ownerId : String</text>
+    <text x="12" y="68" font-size="11" fill="#334155">+ fullName : String</text>
+    <text x="12" y="86" font-size="11" fill="#334155">+ email : String</text>
+    <text x="12" y="104" font-size="11" fill="#334155">+ role : String</text>
+    <text x="12" y="122" font-size="11" fill="#334155">+ lastReviewDate : Date</text>
+    <line x1="0" y1="134" x2="230" y2="134" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="12" y="154" font-size="11" fill="#334155">+ revalidatePage(p : WikiPage)</text>
+  </g>
+
+  <!-- 4. EngineeringTeam -->
+  <g transform="translate(720, 360)" filter="url(#cls-shadow)">
+    <rect x="0" y="0" width="230" height="160" rx="6" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+    <rect x="0" y="0" width="230" height="30" rx="6" fill="#f1f5f9"/>
+    <text x="115" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">EngineeringTeam</text>
+    <line x1="0" y1="30" x2="230" y2="30" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="12" y="50" font-size="11" fill="#334155">+ teamId : String [1..12]</text>
+    <text x="12" y="68" font-size="11" fill="#334155">+ teamName : String</text>
+    <text x="12" y="86" font-size="11" fill="#334155">+ weeklyQuota : Float = 1.0 d/w</text>
+    <text x="12" y="104" font-size="11" fill="#334155">+ assignedPagesCount : Int</text>
+    <line x1="0" y1="116" x2="230" y2="116" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="12" y="136" font-size="11" fill="#334155">+ submitWeeklyTriage()</text>
+  </g>
+
+  <!-- 5. MigrationBatch -->
+  <g transform="translate(370, 390)" filter="url(#cls-shadow)">
+    <rect x="0" y="0" width="260" height="175" rx="6" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+    <rect x="0" y="0" width="260" height="30" rx="6" fill="#f1f5f9"/>
+    <text x="130" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">MigrationBatch</text>
+    <line x1="0" y1="30" x2="260" y2="30" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="12" y="50" font-size="11" fill="#334155">+ batchId : String</text>
+    <text x="12" y="68" font-size="11" fill="#334155">+ batchName : String</text>
+    <text x="12" y="86" font-size="11" fill="#334155">+ pageCount : Int [Total 7,000]</text>
+    <text x="12" y="104" font-size="11" fill="#334155">+ migrationRate : Float = 25 p/d</text>
+    <text x="12" y="122" font-size="11" fill="#334155">+ status : BatchStatus</text>
+    <line x1="0" y1="134" x2="260" y2="134" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="12" y="154" font-size="11" fill="#334155">+ executeBatch() : Result</text>
+  </g>
+
+  <!-- 6. ValidationResult -->
+  <g transform="translate(50, 360)" filter="url(#cls-shadow)">
+    <rect x="0" y="0" width="230" height="160" rx="6" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+    <rect x="0" y="0" width="230" height="30" rx="6" fill="#f1f5f9"/>
+    <text x="115" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">ValidationResult</text>
+    <line x1="0" y1="30" x2="230" y2="30" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="12" y="50" font-size="11" fill="#334155">+ resultId : String</text>
+    <text x="12" y="68" font-size="11" fill="#334155">+ linkCheckPassed : Boolean</text>
+    <text x="12" y="86" font-size="11" fill="#334155">+ searchIndexed : Boolean</text>
+    <text x="12" y="104" font-size="11" fill="#334155">+ brokenLinksCount : Int</text>
+    <line x1="0" y1="116" x2="230" y2="116" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="12" y="136" font-size="11" fill="#334155">+ certifyPageIntegrity()</text>
+  </g>
+
+  <!-- 7. RiskItem & ProjectSchedule (Bottom) -->
+  <g transform="translate(50, 580)" filter="url(#cls-shadow)">
+    <rect x="0" y="0" width="410" height="150" rx="6" fill="#ffffff" stroke="#ef4444" stroke-width="1.5"/>
+    <rect x="0" y="0" width="410" height="30" rx="6" fill="#fee2e2"/>
+    <text x="205" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#991b1b">RiskItem (Risk Register)</text>
+    <line x1="0" y1="30" x2="410" y2="30" stroke="#fca5a5" stroke-width="1"/>
+    <text x="12" y="50" font-size="11" fill="#334155">+ riskId : String [R1..R4] | description : String</text>
+    <text x="12" y="68" font-size="11" fill="#334155">+ probability : Float | impact : Float | exposure : Float (P × I)</text>
+    <text x="12" y="86" font-size="11" fill="#334155">+ rank : Int [R2=Rank 1 (4.2), R1=Rank 2 (3.6), R3=1.6, R4=0.5]</text>
+    <text x="12" y="104" font-size="11" fill="#334155">+ owner : String | mitigationPlan : String | contingencyPlan : String</text>
+    <line x1="0" y1="116" x2="410" y2="116" stroke="#fecaca" stroke-width="1"/>
+    <text x="12" y="136" font-size="11" fill="#991b1b">+ evaluateExposure() : Float | triggerContingency()</text>
+  </g>
+
+  <g transform="translate(520, 580)" filter="url(#cls-shadow)">
+    <rect x="0" y="0" width="430" height="150" rx="6" fill="#ffffff" stroke="#0ea5e9" stroke-width="1.5"/>
+    <rect x="0" y="0" width="430" height="30" rx="6" fill="#e0f2fe"/>
+    <text x="215" y="20" text-anchor="middle" font-size="13" font-weight="700" fill="#0369a1">ProjectSchedule (Mathematical Model)</text>
+    <line x1="0" y1="30" x2="430" y2="30" stroke="#bae6fd" stroke-width="1"/>
+    <text x="12" y="50" font-size="11" fill="#334155">+ totalInventory : Int = 14,000 pages</text>
+    <text x="12" y="68" font-size="11" fill="#334155">+ triageEffort : Float = 350 p-d (14k / 40) | migrationEffort : Float = 280 p-d (7k / 25)</text>
+    <text x="12" y="86" font-size="11" fill="#334155">+ totalEffort : Float = 630 p-d | weeklyCapacity : Float = 15 p-d/wk (3 TW + 12 Teams)</text>
+    <text x="12" y="104" font-size="11" fill="#334155">+ durationWeeks : Float = 42.0 wks | licenceLimitWeeks : Float = 39.0 wks (9 mos)</text>
+    <line x1="0" y1="116" x2="430" y2="116" stroke="#e0f2fe" stroke-width="1"/>
+    <text x="12" y="136" font-size="11" fill="#0369a1">+ calculateScheduleGap() : Float [Deficit: +3.0 Weeks Overrun]</text>
+  </g>
+
+  <!-- Association Connectors -->
+  <!-- TriageDecision to WikiPage (1 to 1) -->
+  <line x1="280" y1="170" x2="370" y2="170" stroke="#475569" stroke-width="1.5"/>
+  <text x="295" y="162" font-size="10" fill="#475569">1</text>
+  <text x="355" y="162" font-size="10" fill="#475569">1</text>
+  <text x="325" y="185" text-anchor="middle" font-size="10" fill="#64748b">classifies</text>
+
+  <!-- WikiPage to Owner (N to 1) -->
+  <line x1="630" y1="170" x2="720" y2="170" stroke="#475569" stroke-width="1.5"/>
+  <text x="640" y="162" font-size="10" fill="#475569">*</text>
+  <text x="705" y="162" font-size="10" fill="#475569">1</text>
+  <text x="675" y="185" text-anchor="middle" font-size="10" fill="#64748b">assignedTo</text>
+
+  <!-- Owner to EngineeringTeam (N to 1) -->
+  <line x1="835" y1="265" x2="835" y2="360" stroke="#475569" stroke-width="1.5"/>
+  <text x="842" y="280" font-size="10" fill="#475569">*</text>
+  <text x="842" y="348" font-size="10" fill="#475569">1</text>
+  <text x="865" y="315" font-size="10" fill="#64748b">memberOf</text>
+
+  <!-- WikiPage to MigrationBatch (N to 0..1) -->
+  <line x1="500" y1="325" x2="500" y2="390" stroke="#475569" stroke-width="1.5"/>
+  <text x="485" y="340" font-size="10" fill="#475569">*</text>
+  <text x="485" y="380" font-size="10" fill="#475569">0..1</text>
+  <text x="530" y="358" font-size="10" fill="#64748b">batchedIn</text>
+
+  <!-- WikiPage to ValidationResult (1 to 1) -->
+  <line x1="370" y1="260" x2="280" y2="380" stroke="#475569" stroke-width="1.5"/>
+  <text x="350" y="275" font-size="10" fill="#475569">1</text>
+  <text x="295" y="370" font-size="10" fill="#475569">1</text>
+  <text x="305" y="315" font-size="10" fill="#64748b">validatedBy</text>
+
+  <!-- Caption -->
+  <text x="500" y="775" text-anchor="middle" font-size="12" fill="#64748b" font-style="italic">Figure 1.3: WikiMove UML Class Diagram modeling core entities, attributes, relationships, and schedule/risk models.</text>
+</svg>

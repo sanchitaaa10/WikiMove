@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WikiMove – Risk Management &amp; Project Progress</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">W</div>
+        <div class="brand-text">
+          <h1>WikiMove</h1>
+          <p>Academic Project Prototype</p>
+        </div>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="dashboard.html"><span>📊</span> Dashboard</a></li>
+        <li class="nav-item"><a href="triage.html"><span>📋</span> Page Triage</a></li>
+        <li class="nav-item"><a href="review.html"><span>🔍</span> Page Review</a></li>
+        <li class="nav-item"><a href="migration.html"><span>🚀</span> Migration Status</a></li>
+        <li class="nav-item"><a href="ownership.html"><span>👥</span> Ownership Mgmt</a></li>
+        <li class="nav-item active"><a href="risks.html"><span>⚠️</span> Risks &amp; Schedule</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <p><strong>Top Risk:</strong> Teams No Review</p>
+        <p>Exposure: 4.2 (Rank 1)</p>
+        <p style="margin-top: 6px; font-size: 10px;">SE &amp; PM Academic Submission</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-wrapper">
+      <header class="top-bar">
+        <div class="page-title">
+          <h2>Screen 6: Risk Register &amp; Project Schedule Status</h2>
+        </div>
+        <div class="top-badge">
+          <span>⚠️</span> RMMM Active for Top 3 Risks
+        </div>
+      </header>
+
+      <div class="content-body">
+        <div class="academic-notice">
+          <span><strong>Risk Exposure Calculation:</strong> Exposure = Probability × Impact. R2 (4.2) > R1 (3.6) > R3 (1.6) > R4 (0.5). Schedule Overrun = 42 − 39 = +3.0 Weeks.</span>
+          <span class="badge badge-red">Critical Focus</span>
+        </div>
+
+        <!-- Metric Cards Grid -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-title">Highest Risk Exposure</div>
+            <div class="metric-value" style="color: var(--danger-color);">4.2</div>
+            <div class="metric-sub">R2: Teams do not review pages</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Critical Schedule Risk</div>
+            <div class="metric-value" style="color: var(--warning-color);">3.6</div>
+            <div class="metric-sub">R1: Licence expires before end</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Licence Expiry Limit</div>
+            <div class="metric-value">39 Wks</div>
+            <div class="metric-sub">9 Months (4.33 wks/mo)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Schedule Deficit Gap</div>
+            <div class="metric-value" style="color: var(--danger-color);">+3.0 Wks</div>
+            <div class="metric-sub">Baseline: 42 Wks (630 / 15)</div>
+          </div>
+        </div>
+
+        <!-- Risk Register Table Panel -->
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Case Study Risk Register (Ranked by Exposure E = P × I)</h3>
+            <span class="badge badge-blue">Case Study Data Grounded</span>
+          </div>
+          <div class="panel-body">
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Risk ID</th>
+                    <th>Risk Description</th>
+                    <th>Probability (P)</th>
+                    <th>Impact (I)</th>
+                    <th>Exposure (E)</th>
+                    <th>Risk Owner</th>
+                    <th>Mitigation Strategy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background: #fff5f5;">
+                    <td><strong style="color: var(--danger-color);">1</strong></td>
+                    <td><code>R2</code></td>
+                    <td><strong>Teams do not review pages</strong></td>
+                    <td>0.6</td>
+                    <td>7</td>
+                    <td><strong style="color: var(--danger-color); font-size: 15px;">4.2</strong></td>
+                    <td>CTO &amp; Eng Leads</td>
+                    <td>Enforce mandatory 1 p-d/week quota per team in sprint planning; weekly burndown audits.</td>
+                  </tr>
+                  <tr style="background: #fffdf5;">
+                    <td><strong style="color: var(--warning-color);">2</strong></td>
+                    <td><code>R1</code></td>
+                    <td><strong>Licence expires before project completion</strong></td>
+                    <td>0.4</td>
+                    <td>9</td>
+                    <td><strong style="color: var(--warning-color); font-size: 15px;">3.6</strong></td>
+                    <td>Project Manager</td>
+                    <td>Negotiate 1-month licence extension; prioritize 7,000 kept pages; parallelize migration.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>3</strong></td>
+                    <td><code>R3</code></td>
+                    <td><strong>Broken links after migration</strong></td>
+                    <td>0.4</td>
+                    <td>4</td>
+                    <td><strong>1.6</strong></td>
+                    <td>Technical Writer</td>
+                    <td>Automated URL rewrite mapping; regex link checker; legacy 301 redirection table.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>4</strong></td>
+                    <td><code>R4</code></td>
+                    <td><strong>No owner after migration</strong></td>
+                    <td>0.5</td>
+                    <td>1</td>
+                    <td><strong>0.5</strong></td>
+                    <td>Governance Custodian</td>
+                    <td>System blocks migration unless a named custodian is assigned; 90-day review notifications.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Schedule & Licence Analysis -->
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Project Schedule Analysis &amp; Mathematical Breakdown</h3>
+            <span class="badge badge-amber">Baseline 42-Week Duration</span>
+          </div>
+          <div class="panel-body">
+            <div class="data-table-wrapper" style="margin-bottom: 16px;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Case Study Value</th>
+                    <th>Mathematical Formula</th>
+                    <th>Calculated Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Total Wiki Inventory</td>
+                    <td>14,000 pages</td>
+                    <td>Given primary data</td>
+                    <td>14,000 pages</td>
+                  </tr>
+                  <tr>
+                    <td>Outdated Pages Ratio</td>
+                    <td>50%</td>
+                    <td>14,000 × 50%</td>
+                    <td>7,000 pages</td>
+                  </tr>
+                  <tr>
+                    <td>Kept Pages to Migrate</td>
+                    <td>50%</td>
+                    <td>14,000 × 50%</td>
+                    <td><strong>7,000 pages</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Triage Effort</td>
+                    <td>40 pages / person-day</td>
+                    <td>14,000 / 40</td>
+                    <td><strong>350 person-days</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Migration Effort</td>
+                    <td>25 pages / person-day</td>
+                    <td>7,000 / 25</td>
+                    <td><strong>280 person-days</strong></td>
+                  </tr>
+                  <tr style="background: var(--bg-secondary); font-weight: 700;">
+                    <td>Total Project Effort</td>
+                    <td>Combined Triage + Migration</td>
+                    <td>350 + 280</td>
+                    <td><strong>630 person-days</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Weekly Capacity</td>
+                    <td>TW: 3 p-d/wk | 12 Teams: 12 p-d/wk</td>
+                    <td>3 + 12</td>
+                    <td><strong>15 person-days / week</strong></td>
+                  </tr>
+                  <tr style="background: var(--bg-secondary); font-weight: 700;">
+                    <td>Estimated Project Duration</td>
+                    <td>Total Effort / Weekly Capacity</td>
+                    <td>630 / 15</td>
+                    <td><strong>42.0 weeks</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Available Licence Period</td>
+                    <td>9 months</td>
+                    <td>9 × 4.33 weeks/month</td>
+                    <td><strong>39.0 weeks</strong></td>
+                  </tr>
+                  <tr style="background: #fef2f2; color: #991b1b; font-weight: 700;">
+                    <td>Schedule Overrun Gap</td>
+                    <td>Duration − Licence Limit</td>
+                    <td>42.0 − 39.0</td>
+                    <td><strong style="color: var(--danger-color);">+3.0 weeks overrun (Conflict)</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Management Contingency Recommendations -->
+            <div style="background: var(--bg-secondary); padding: 16px; border-radius: var(--radius-sm); font-size: 13px;">
+              <h4 style="font-weight: 700; margin-bottom: 6px;">Academic Project Management Contingencies for 3-Week Gap:</h4>
+              <p>1. <strong>Licence Extension Option:</strong> Request a 30-day (4.3-week) bridging licence from legacy vendor.<br>
+              2. <strong>Capacity Uplift Option:</strong> Increase Technical Writer allocation from 3 to 5 p-d/week or increase engineering allocation.<br>
+              3. <strong>Critical Content Prioritization:</strong> Fast-track top 5,000 core pages before week 39; complete remaining 2,000 in read-only phase.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

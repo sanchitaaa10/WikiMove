@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WikiMove – UI Prototypes Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .portal-hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: #fff;
+      padding: 40px 32px;
+      border-radius: var(--radius-lg);
+      margin-bottom: 32px;
+    }
+    .screen-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .screen-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .screen-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      border-color: var(--primary-border);
+    }
+    .screen-num {
+      display: inline-block;
+      padding: 4px 10px;
+      background: var(--primary-light);
+      color: var(--primary-color);
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">W</div>
+        <div class="brand-text">
+          <h1>WikiMove</h1>
+          <p>Academic Project Prototype</p>
+        </div>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item active"><a href="index.html"><span>🏠</span> Portal Home</a></li>
+        <li class="nav-item"><a href="dashboard.html"><span>📊</span> Screen 1: Dashboard</a></li>
+        <li class="nav-item"><a href="triage.html"><span>📋</span> Screen 2: Triage</a></li>
+        <li class="nav-item"><a href="review.html"><span>🔍</span> Screen 3: Review</a></li>
+        <li class="nav-item"><a href="migration.html"><span>🚀</span> Screen 4: Migration</a></li>
+        <li class="nav-item"><a href="ownership.html"><span>👥</span> Screen 5: Ownership</a></li>
+        <li class="nav-item"><a href="risks.html"><span>⚠️</span> Screen 6: Risks</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <p><strong>WikiMove Portal</strong></p>
+        <p>Zero Backend / Static UI</p>
+        <p style="margin-top: 6px; font-size: 10px;">SE &amp; PM Academic Submission</p>
+      </div>
+    </aside>
+
+    <main class="main-wrapper">
+      <header class="top-bar">
+        <div class="page-title">
+          <h2>WikiMove – Proposed System UI Prototype Portal</h2>
+        </div>
+        <div class="top-badge">
+          <span>🎓</span> Academic Prototype (6 Screens)
+        </div>
+      </header>
+
+      <div class="content-body">
+        <div class="portal-hero">
+          <h1 style="font-size: 26px; font-weight: 800; margin-bottom: 10px;">WikiMove: UI Prototype Suite</h1>
+          <p style="font-size: 15px; opacity: 0.95; max-width: 720px; line-height: 1.6; margin-bottom: 16px;">
+            A complete visual representation of the proposed knowledge base migration and governance system, built with clean HTML, CSS, and minimal JavaScript in compliance with academic requirements.
+          </p>
+          <div style="display: flex; gap: 12px; font-size: 13px;">
+            <span>📁 14,000 Total Pages</span>
+            <span>•</span>
+            <span>⚡ 7,000 Kept Pages (50%)</span>
+            <span>•</span>
+            <span>⏱️ 42-Wk Estimate vs 39-Wk Licence</span>
+          </div>
+        </div>
+
+        <div class="screen-cards">
+          <a href="dashboard.html" class="screen-card">
+            <span class="screen-num">Screen 1</span>
+            <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Executive Dashboard</h3>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">High-level KPI cards for total pages (14,000), reviewed pages, kept vs deleted, overall migration progress, and licence expiry status.</p>
+          </a>
+
+          <a href="triage.html" class="screen-card">
+            <span class="screen-num">Screen 2</span>
+            <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Page Triage Queue</h3>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">Interactive triage queue for engineering teams to evaluate pages at 40 pages/day and select Keep, Archive, or Delete.</p>
+          </a>
+
+          <a href="review.html" class="screen-card">
+            <span class="screen-num">Screen 3</span>
+            <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Detailed Page Review</h3>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">In-depth inspection interface displaying legacy page content, metadata, review notes, and mandatory named owner assignment.</p>
+          </a>
+
+          <a href="migration.html" class="screen-card">
+            <span class="screen-num">Screen 4</span>
+            <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Migration Dashboard</h3>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">Batch execution tracking for the 7,000 kept pages at 25 pages/day with progress bars, validation states, and error handling.</p>
+          </a>
+
+          <a href="ownership.html" class="screen-card">
+            <span class="screen-num">Screen 5</span>
+            <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Ownership Management</h3>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">Post-migration governance registry binding each active page to a named custodian to enforce 90-day review cycles and eliminate orphan decay.</p>
+          </a>
+
+          <a href="risks.html" class="screen-card">
+            <span class="screen-num">Screen 6</span>
+            <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Risk &amp; Schedule Status</h3>
+            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">Evaluates all four project risks (R1-R4) by exposure $E = P \times I$ and presents the mathematical schedule gap analysis (+3.0 weeks overrun).</p>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

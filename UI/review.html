@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WikiMove – Single Page Review &amp; Inspection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">W</div>
+        <div class="brand-text">
+          <h1>WikiMove</h1>
+          <p>Academic Project Prototype</p>
+        </div>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="dashboard.html"><span>📊</span> Dashboard</a></li>
+        <li class="nav-item"><a href="triage.html"><span>📋</span> Page Triage</a></li>
+        <li class="nav-item active"><a href="review.html"><span>🔍</span> Page Review</a></li>
+        <li class="nav-item"><a href="migration.html"><span>🚀</span> Migration Status</a></li>
+        <li class="nav-item"><a href="ownership.html"><span>👥</span> Ownership Mgmt</a></li>
+        <li class="nav-item"><a href="risks.html"><span>⚠️</span> Risks &amp; Schedule</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <p><strong>Page ID:</strong> WP-01042</p>
+        <p>Status: Reviewing</p>
+        <p style="margin-top: 6px; font-size: 10px;">SE &amp; PM Academic Submission</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-wrapper">
+      <header class="top-bar">
+        <div class="page-title">
+          <h2>Screen 3: Detailed Page Review &amp; Classification</h2>
+        </div>
+        <div class="top-badge">
+          <span>📑</span> Inspecting: Payment Gateway v2 API Specs
+        </div>
+      </header>
+
+      <div class="content-body">
+        <div class="academic-notice">
+          <span><strong>Owner Assignment Rule:</strong> If classified as <code>KEEP</code>, an active engineering custodian must be designated before the page can be queued for migration.</span>
+          <span class="badge badge-green">Prevents Orphan Decay (R4)</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+          <!-- Left Column: Content Preview -->
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Content Preview &amp; Document Metadata</h3>
+              <span class="badge badge-blue">Legacy HTML Render</span>
+            </div>
+            <div class="panel-body">
+              <div style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border-color);">
+                <h1 style="font-size: 20px; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">Payment Gateway v2 API Specifications</h1>
+                <div style="display: flex; gap: 16px; font-size: 12px; color: var(--text-muted);">
+                  <span><strong>Original URL:</strong> <code>https://legacy-wiki.internal/wiki/payments/v2-spec</code></span>
+                  <span><strong>Word Count:</strong> 1,420 words</span>
+                  <span><strong>Total Links:</strong> 14 (0 dead)</span>
+                </div>
+              </div>
+
+              <!-- Simulated Markdown Content -->
+              <div style="background: var(--bg-surface); font-size: 13px; line-height: 1.6; color: #334155;">
+                <h4 style="font-size: 14px; font-weight: 700; color: #0f172a; margin: 12px 0 6px;">1. Overview &amp; Architecture</h4>
+                <p style="margin-bottom: 12px;">This document specifies the RESTful endpoints, idempotency headers, payload encryption (AES-256-GCM), and webhooks required for integrating third-party payment gateways (Stripe, Adyen, Razorpay).</p>
+
+                <h4 style="font-size: 14px; font-weight: 700; color: #0f172a; margin: 12px 0 6px;">2. Authentication &amp; Webhook Signatures</h4>
+                <p style="margin-bottom: 12px;">All requests require an <code>X-Signature-SHA256</code> header HMAC signed with the merchant private key. Token TTL is fixed at 900 seconds with automatic token refreshing.</p>
+
+                <div style="background: var(--bg-secondary); padding: 12px; border-radius: var(--radius-sm); border-left: 3px solid var(--primary-color); font-family: monospace; font-size: 12px; margin-bottom: 14px;">
+                  POST /api/v2/payments/charge<br>
+                  Headers: Authorization: Bearer {JWT}, Idempotency-Key: {UUID}
+                </div>
+
+                <h4 style="font-size: 14px; font-weight: 700; color: #0f172a; margin: 12px 0 6px;">3. Error Codes</h4>
+                <p>Standardized RFC 7807 problem details are returned for HTTP 400, 401, 403, and 500 error scenarios.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Review Controls -->
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <h3>Reviewer Decision Form</h3>
+              </div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <label class="form-label">Reviewing Engineering Team</label>
+                  <input type="text" class="form-control" value="Team 1 - Payments Core" readonly>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Current / Legacy Owner</label>
+                  <input type="text" class="form-control" value="Jane Doe (Departed 2024)" readonly style="color: var(--danger-color);">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Assign New Named Owner (Mandatory for KEEP)</label>
+                  <select class="form-control">
+                    <option>Alex Rivera (Tech Lead - Payments)</option>
+                    <option>Marcus Chen (Senior Backend Engineer)</option>
+                    <option>Priya Patel (Staff Architect)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Reviewer Comments</label>
+                  <textarea class="form-control" rows="4" placeholder="Add triage notes, required edits, or archival justification...">Content is 100% current and in production use. Replaced legacy author with active Tech Lead Alex Rivera. Ready for migration batching.</textarea>
+                </div>
+
+                <div style="margin-top: 20px;">
+                  <label class="form-label" style="margin-bottom: 10px;">Classification Action</label>
+                  <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <button class="btn btn-keep" style="padding: 10px; font-size: 13px;">✓ Keep &amp; Queue for Migration</button>
+                    <button class="btn btn-archive" style="padding: 10px; font-size: 13px;">📁 Archive to Cold Storage</button>
+                    <button class="btn btn-delete" style="padding: 10px; font-size: 13px;">🗑️ Permanently Delete Page</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Page Quick Stats -->
+            <div class="panel">
+              <div class="panel-header">
+                <h3>Audit Trail</h3>
+              </div>
+              <div class="panel-body" style="font-size: 12px; color: var(--text-muted);">
+                <p>• Created: 2019-03-12</p>
+                <p>• Last Modified: 2026-08-14</p>
+                <p>• Total Revisions: 28 revisions</p>
+                <p>• Linked from: 18 other wiki pages</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
