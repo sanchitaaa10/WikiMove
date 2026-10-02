@@ -5,7 +5,8 @@
 **Project Name:** WikiMove  
 **Course:** Software Engineering & Project Management  
 **Academic Term:** Final Academic Submission  
-**Student Name:** [Student Name / ID Placeholder]  
+**Student Name:** Sanchita Suryawanshi  
+**Roll Number:** 150096724115  
 **Institution:** [Department of Computer Science & Engineering / University Placeholder]  
 **Date:** Academic Term 2026  
 **Status:** Approved for Academic Submission  

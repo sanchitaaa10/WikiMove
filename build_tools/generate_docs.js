@@ -254,6 +254,9 @@ async function generateDocx(mdContent, outputPath, docTitle) {
   }
 
   const doc = new Document({
+    creator: "Sanchita Suryawanshi (Roll No: 150096724115)",
+    title: docTitle,
+    description: "WikiMove – Software Engineering & Project Management Portfolio",
     styles: {
       default: {
         document: {
@@ -286,7 +289,7 @@ function generatePdf(mdContent, outputPath, docTitle) {
       bufferPages: true,
       info: {
         Title: docTitle,
-        Author: 'WikiMove Academic Team',
+        Author: 'Sanchita Suryawanshi (Roll No: 150096724115)',
         Subject: 'Software Engineering & Project Management Submission'
       }
     });
@@ -297,7 +300,7 @@ function generatePdf(mdContent, outputPath, docTitle) {
     // Title Header
     doc.fillColor('#1E3A8A').fontSize(20).font('Helvetica-Bold').text(docTitle, { align: 'left' });
     doc.moveDown(0.3);
-    doc.fillColor('#64748B').fontSize(10).font('Helvetica').text('WikiMove – Migrating a Company Knowledge Base to a New Platform | Academic Portfolio 2026');
+    doc.fillColor('#64748B').fontSize(10).font('Helvetica').text('WikiMove | Student: Sanchita Suryawanshi (Roll No: 150096724115) | Academic Portfolio 2026');
     doc.moveDown(0.6);
     doc.strokeColor('#CBD5E1').lineWidth(1).moveTo(50, doc.y).lineTo(545, doc.y).stroke();
     doc.moveDown(1);
@@ -391,7 +394,7 @@ function generatePdf(mdContent, outputPath, docTitle) {
     for (let i = 0; i < totalPages; i++) {
       doc.switchToPage(i);
       doc.fillColor('#94A3B8').fontSize(8).font('Helvetica').text(
-        `WikiMove – Academic Project | Page ${i + 1} of ${totalPages}`,
+        `WikiMove | Sanchita Suryawanshi (Roll No: 150096724115) | Page ${i + 1} of ${totalPages}`,
         50,
         780,
         { align: 'center', width: 495 }

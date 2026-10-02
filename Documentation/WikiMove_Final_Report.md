@@ -7,7 +7,8 @@
 **Course:** Software Engineering & Project Management  
 **Academic Degree:** Bachelor of Technology / Master of Science in Computer Science & Engineering  
 **Academic Term:** Final Submission 2026  
-**Student Name:** [Student Name / ID Placeholder]  
+**Student Name:** Sanchita Suryawanshi  
+**Roll Number:** 150096724115  
 **Faculty Evaluator:** [Course Instructor / Professor Placeholder]  
 **Institution:** [Department of Computer Science & Engineering / University Placeholder]  
 **Date of Submission:** Academic Term 2026  

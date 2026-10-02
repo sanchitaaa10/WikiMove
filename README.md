@@ -8,7 +8,8 @@
 **Project Title:** WikiMove – Migrating a Company Knowledge Base to a New Platform  
 **Course:** Software Engineering & Project Management  
 **Project Category:** Academic Documentation & UI Representation Project  
-**Author / Student:** [Student Name / ID Placeholder]  
+**Author / Student:** Sanchita Suryawanshi  
+**Roll Number:** 150096724115  
 **Academic Evaluator:** [Course Instructor / Professor Placeholder]  
 **Academic Institution:** [Department of Computer Science & Engineering / University Placeholder]  
 
