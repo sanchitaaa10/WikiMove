@@ -21,11 +21,11 @@ const MIME_TYPES = {
 
 const server = http.createServer((req, res) => {
   let reqUrl = decodeURI(req.url.split('?')[0]);
-  if (reqUrl === '/') {
+  if (reqUrl === '/' || reqUrl === '/index.html') {
     reqUrl = '/UI/index.html';
   }
 
-  const filePath = path.join(BASE_DIR, reqUrl);
+  let filePath = path.join(BASE_DIR, reqUrl);
 
   // Security check to avoid directory traversal
   if (!filePath.startsWith(BASE_DIR)) {
@@ -34,21 +34,33 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  fs.stat(filePath, (err, stats) => {
-    if (err || !stats.isFile()) {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      res.end(`404 Not Found: ${reqUrl}`);
-      return;
-    }
-
-    const ext = path.extname(filePath).toLowerCase();
+  const serveFile = (targetPath) => {
+    const ext = path.extname(targetPath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
 
     res.writeHead(200, {
       'Content-Type': contentType,
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      'Cache-Control': 'no-cache, no-store, must-revalidate'
     });
-    fs.createReadStream(filePath).pipe(res);
+    fs.createReadStream(targetPath).pipe(res);
+  };
+
+  fs.stat(filePath, (err, stats) => {
+    if (!err && stats.isFile()) {
+      return serveFile(filePath);
+    }
+
+    // Try fallback inside UI directory
+    const uiPath = path.join(BASE_DIR, 'UI', reqUrl);
+    fs.stat(uiPath, (uiErr, uiStats) => {
+      if (!uiErr && uiStats.isFile()) {
+        return serveFile(uiPath);
+      }
+
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end(`404 Not Found: ${reqUrl}`);
+    });
   });
 });
 

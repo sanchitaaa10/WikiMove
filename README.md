@@ -71,7 +71,7 @@ All major project documentation is provided in editable Microsoft Word (`.docx`)
 
 ### 4.2 System & UML Diagrams (`Diagrams/`)
 
-Provided as standalone vector SVG files renderable in all browsers:
+Provided as standalone vector SVG files renderable directly in all markdown previewers, browsers, and GitHub:
 
 | Diagram Name | File Location | Academic Role |
 | :--- | :--- | :--- |
@@ -82,6 +82,130 @@ Provided as standalone vector SVG files renderable in all browsers:
 | **UML Activity Diagram** | [Activity_Diagram.svg](file:///Users/sanchita/Desktop/WikiMove/Diagrams/Activity_Diagram.svg) | Decision logic flow for Keep/Archive/Delete triage and mandatory owner assignment. |
 | **UML State Machine Diagram** | [State_Diagram.svg](file:///Users/sanchita/Desktop/WikiMove/Diagrams/State_Diagram.svg) | Complete lifecycle state transitions from `Discovered` to `Validated` and `ActiveGoverned`. |
 | **Logical Architecture Diagram** | [Architecture_Diagram.svg](file:///Users/sanchita/Desktop/WikiMove/Diagrams/Architecture_Diagram.svg) | 4-tier layered architecture separating UI prototypes, business logic, data models, and platforms. |
+
+---
+
+#### 4.2.1 System Context Diagram (Level 0)
+**Vector Source:** [Context_Diagram.svg](file:///Users/sanchita/Desktop/WikiMove/Diagrams/Context_Diagram.svg)  
+*Level 0 environmental boundary diagram modeling external actors, operational capacity ceilings (15 person-days/week), and platform boundaries against the 39-week licence window.*
+
+![System Context Diagram](Diagrams/Context_Diagram.svg)
+
+- **System Boundary:** The WikiMove Management Platform manages inventory ingestion (14,000 pages), review coordination, ownership binding, content migration (7,000 kept pages), and link verification.
+- **External Actors:** 
+  - **Technical Writer:** Full-time dedicated project lead (allocated 3 person-days/week).
+  - **12 Engineering Teams:** Content reviewers providing domain expertise (allocated 1 person-day/week each = 12 p-d/week).
+  - **CTO & Engineering Leadership:** Executive sponsor enforcing review compliance mandates and resolving resource bottlenecks.
+  - **Project Manager:** Tracks burndown metrics, schedule gaps (+3.0 weeks deficit), and commercial licence negotiations.
+- **External Interfaces:** Legacy Confluence Instance (read-only source) and Target Modern Knowledge Base (destination platform).
+
+---
+
+#### 4.2.2 UML Use Case Diagram
+**Vector Source:** [Use_Case_Diagram.svg](file:///Users/sanchita/Desktop/WikiMove/Diagrams/Use_Case_Diagram.svg)  
+*Functional boundary mapping 6 human actors to 11 core system use cases governing the discovery, triage, migration, and governance lifecycle.*
+
+![UML Use Case Diagram](Diagrams/Use_Case_Diagram.svg)
+
+- **Key Actors & Primary Use Cases:**
+  - **Technical Writer:** *UC-01: Ingest & Catalog Legacy Inventory*, *UC-02: Batch Pages for Team Review*, *UC-07: Track Overall Project Burndown*.
+  - **Engineering Team Leads / Reviewers:** *UC-03: Perform Triage Review (Keep / Archive / Delete)*, *UC-04: Assign Named Content Owner*.
+  - **Content Owners:** *UC-05: Revalidate & Attest Page Accuracy*, *UC-10: Accept 90-Day Governance Renewal*.
+  - **QA & Testing Specialists:** *UC-08: Validate Migrated Formatting & Attachments*, *UC-09: Verify Hyperlink Integrity & 301 Redirect Rules*.
+  - **CTO / Sponsor:** *UC-11: Enforce Review Allocation Mandate (Risk R2 Mitigation)*.
+  - **Project Manager:** *UC-06: Monitor 39-Week Licence Window & Critical Path*.
+
+---
+
+#### 4.2.3 UML Class Diagram
+**Vector Source:** [Class_Diagram.svg](file:///Users/sanchita/Desktop/WikiMove/Diagrams/Class_Diagram.svg)  
+*Structural domain model illustrating domain entities, encapsulation, relationships, cardinalities, and enumerations.*
+
+![UML Class Diagram](Diagrams/Class_Diagram.svg)
+
+- **Core Domain Entities:**
+  - `WikiPage`: Master entity representing each of the 14,000 legacy articles (`pageId`, `title`, `author`, `department`, `createdDate`, `status`, `wordCount`, `outboundLinkCount`).
+  - `TriageDecision`: Encapsulates triage outcomes (`decisionId`, `action: TriageAction`, `reviewerNotes`, `triageDate`).
+  - `PageOwner`: Represents the named custodian (`ownerId`, `fullName`, `email`, `department`, `attestationDate`).
+  - `EngineeringTeam`: Models the 12 reviewing teams with weekly capacity allocations (`teamId`, `teamName`, `allocatedDaysPerWeek`).
+  - `MigrationBatch`: Sprint migration units grouped at 25 pages/day velocity (`batchId`, `batchNumber`, `scheduledSprint`, `batchStatus`).
+  - `RedirectRule`: Hyperlink mapping table preventing 404 errors (`legacyUrl`, `targetUrl`, `httpStatusCode: 301`, `validationStatus`).
+  - `RiskRecord`: Quantitative risk management model (`riskId`, `probability`, `impact`, `exposureScore`).
+- **Cardinality Constraints:**
+  - Each `WikiPage` must map to exactly one `PageOwner` before migration (**Zero-Orphan Invariant**).
+  - Each `EngineeringTeam` manages a queue of 0..* `WikiPage` entities.
+
+---
+
+#### 4.2.4 UML Sequence Diagram
+**Vector Source:** [Sequence_Diagram.svg](file:///Users/sanchita/Desktop/WikiMove/Diagrams/Sequence_Diagram.svg)  
+*Temporal message interaction showing synchronous and asynchronous communications across actors, services, and storage systems.*
+
+![UML Sequence Diagram](Diagrams/Sequence_Diagram.svg)
+
+- **Execution Flow Sequence:**
+  1. **Triage Ingestion:** Technical Writer triggers inventory batching; the Triage Service allocates queues to the appropriate Engineering Team.
+  2. **Review & Ownership Binding:** Engineering Team Lead conducts technical review; selects `Keep` and submits named owner credentials.
+  3. **Zero-Orphan Validation:** Validation Service checks owner presence; rejects orphan submissions with an error or approves valid bindings.
+  4. **Migration Execution:** Migration Engine pulls approved pages, transforms markdown markup, packages attachments, and pushes to the Target Platform at 25 pages/day.
+  5. **QA & Link Audit:** Automated QA scanner verifies link targets, registers 301 redirect mappings, and emits verification receipts.
+  6. **Metric Broadcasting:** Dashboard Service updates executive metrics (pages triaged, velocity burndown, licence countdown timer).
+
+---
+
+#### 4.2.5 UML Activity Diagram
+**Vector Source:** [Activity_Diagram.svg](file:///Users/sanchita/Desktop/WikiMove/Diagrams/Activity_Diagram.svg)  
+*Procedural control flow modeling the triage decision logic, parallel processing, and mandatory governance quality gates.*
+
+![UML Activity Diagram](Diagrams/Activity_Diagram.svg)
+
+- **Workflow Logic:**
+  - **Ingest & Pre-filter:** 14,000 pages ingested from legacy export; automated age & usage filters mark candidates for review.
+  - **Triage Decision Branch:**
+    - Branch 1: `Delete` &rarr; Route to permanent deletion queue &rarr; Log audit trail.
+    - Branch 2: `Archive` &rarr; Export to read-only cold storage &rarr; Record archived snapshot.
+    - Branch 3: `Keep` &rarr; Evaluate Content Owner Assignment.
+  - **Zero-Orphan Guard Decision:** Is a verified named human owner assigned?
+    - If `No` &rarr; Revert to team queue with escalation toast; migration blocked.
+    - If `Yes` &rarr; Lock metadata, assign to Sprint Migration Batch.
+  - **Post-Migration Validation:** Migrate content &rarr; Execute automated link crawler &rarr; Publish 301 redirection table &rarr; Initialize 90-day governance timer &rarr; Mark `Complete`.
+
+---
+
+#### 4.2.6 UML State Machine Diagram
+**Vector Source:** [State_Diagram.svg](file:///Users/sanchita/Desktop/WikiMove/Diagrams/State_Diagram.svg)  
+*State transition model tracing the lifecycle states, state guards, and events of a knowledge base page.*
+
+![UML State Machine Diagram](Diagrams/State_Diagram.svg)
+
+- **State Lifecycle:**
+  - `[*] Discovered`: Page cataloged from legacy Confluence space (Total: 14,000).
+  - `Pending_Triage`: Assigned to one of 12 engineering team queues.
+  - `Triaged_Keep`: Reviewer confirmed page is accurate and relevant (Target: 7,000).
+  - `Owner_Assigned`: Guard condition `[hasNamedOwner == true]` satisfied; page is legally bound to a custodian.
+  - `Scheduled_For_Migration`: Added to active 2-week migration sprint batch.
+  - `In_Migration`: Content actively being transformed and ingested into target system.
+  - `Migrated_Pending_QA`: Transferred to destination; awaiting formatting and link validation.
+  - `Validated`: Verified zero broken links, attachments intact, 301 redirect live.
+  - `Active_Governed`: Live in production; governed by 90-day periodic re-attestation countdown.
+  - Alternate Terminal States: `Archived_ColdStorage` (approx 5,000) and `Deleted_Purged` (approx 2,000).
+
+---
+
+#### 4.2.7 Logical 4-Tier Architecture Diagram
+**Vector Source:** [Architecture_Diagram.svg](file:///Users/sanchita/Desktop/WikiMove/Diagrams/Architecture_Diagram.svg)  
+*Architectural decomposition detailing separation of concerns across presentation, business logic, data models, and external systems.*
+
+![Logical Architecture Diagram](Diagrams/Architecture_Diagram.svg)
+
+- **Tier 1: Presentation Layer (Static Web Suite):**
+  - Executive Dashboard (`dashboard.html`), Page Triage Queue (`triage.html`), Review & Inspection Screen (`review.html`), Migration Burndown (`migration.html`), Ownership Registry (`ownership.html`), Risk & Schedule Monitor (`risks.html`), Interactive Academic Portal (`index.html`).
+- **Tier 2: Application & Business Logic Layer:**
+  - Triage Rule Engine (Keep/Archive/Delete criteria), Velocity & Capacity Engine (40 p/d triage, 25 p/d migration, 15 p-d/wk ceiling), Governance Invariant Guard (Zero-Orphan Policy), Link Integrity & 301 Redirect Mapper, Quantitative Risk Calculator ($E = P \times I$).
+- **Tier 3: Domain & Data Modeling Layer:**
+  - In-Memory Catalog (14,000 pages), Ownership & Custody Registry, Redirection Rule Repository, CPM Schedule & Burndown Dataset, Audit Trail Store.
+- **Tier 4: Platform & Integration Layer:**
+  - Source Legacy Confluence System (11 years of content debt), Target Modern Enterprise Knowledge Base, 39-Week Commercial Licence Boundary.
 
 ---
 

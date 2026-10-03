@@ -18,6 +18,7 @@
         </div>
       </div>
       <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html"><span>🏠</span> Portfolio Home</a></li>
         <li class="nav-item"><a href="dashboard.html"><span>📊</span> Dashboard</a></li>
         <li class="nav-item"><a href="triage.html"><span>📋</span> Page Triage</a></li>
         <li class="nav-item"><a href="review.html"><span>🔍</span> Page Review</a></li>
@@ -74,11 +75,30 @@
           </div>
         </div>
 
+        <!-- Filter Bar -->
+        <div class="panel" style="margin-bottom: 16px;">
+          <div class="panel-body" style="padding: 14px 20px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between;">
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; flex-grow: 1;">
+              <input type="text" id="risk-search" class="form-control" placeholder="Search risk description, ID, or owner..." style="max-width: 320px;">
+              <select id="risk-severity-filter" class="form-control" style="max-width: 200px;">
+                <option value="All">All Exposure Levels</option>
+                <option value="High">High Exposure (E ≥ 3.0)</option>
+                <option value="Medium">Moderate Exposure (1.0 ≤ E < 3.0)</option>
+                <option value="Low">Low Exposure (E < 1.0)</option>
+              </select>
+              <button id="btn-reset-risk-filters" class="btn btn-secondary btn-sm">Reset</button>
+            </div>
+            <div>
+              <span id="risk-counter" style="font-size: 12px; color: var(--text-muted);">Formula: <strong>E = P × I</strong> (Ranked by E)</span>
+            </div>
+          </div>
+        </div>
+
         <!-- Risk Register Table Panel -->
         <div class="panel">
-          <div class="panel-header">
+          <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center;">
             <h3>Case Study Risk Register (Ranked by Exposure E = P × I)</h3>
-            <span class="badge badge-blue">Case Study Data Grounded</span>
+            <button id="btn-add-risk" class="btn btn-primary btn-sm">+ Add Custom Risk</button>
           </div>
           <div class="panel-body">
             <div class="data-table-wrapper">
@@ -88,54 +108,16 @@
                     <th>Rank</th>
                     <th>Risk ID</th>
                     <th>Risk Description</th>
-                    <th>Probability (P)</th>
-                    <th>Impact (I)</th>
+                    <th style="min-width: 110px;">Probability (P)</th>
+                    <th style="min-width: 100px;">Impact (I)</th>
                     <th>Exposure (E)</th>
                     <th>Risk Owner</th>
                     <th>Mitigation Strategy</th>
+                    <th style="text-align: center;">Actions</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr style="background: #fff5f5;">
-                    <td><strong style="color: var(--danger-color);">1</strong></td>
-                    <td><code>R2</code></td>
-                    <td><strong>Teams do not review pages</strong></td>
-                    <td>0.6</td>
-                    <td>7</td>
-                    <td><strong style="color: var(--danger-color); font-size: 15px;">4.2</strong></td>
-                    <td>CTO &amp; Eng Leads</td>
-                    <td>Enforce mandatory 1 p-d/week quota per team in sprint planning; weekly burndown audits.</td>
-                  </tr>
-                  <tr style="background: #fffdf5;">
-                    <td><strong style="color: var(--warning-color);">2</strong></td>
-                    <td><code>R1</code></td>
-                    <td><strong>Licence expires before project completion</strong></td>
-                    <td>0.4</td>
-                    <td>9</td>
-                    <td><strong style="color: var(--warning-color); font-size: 15px;">3.6</strong></td>
-                    <td>Project Manager</td>
-                    <td>Negotiate 1-month licence extension; prioritize 7,000 kept pages; parallelize migration.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>3</strong></td>
-                    <td><code>R3</code></td>
-                    <td><strong>Broken links after migration</strong></td>
-                    <td>0.4</td>
-                    <td>4</td>
-                    <td><strong>1.6</strong></td>
-                    <td>Technical Writer</td>
-                    <td>Automated URL rewrite mapping; regex link checker; legacy 301 redirection table.</td>
-                  </tr>
-                  <tr>
-                    <td><strong>4</strong></td>
-                    <td><code>R4</code></td>
-                    <td><strong>No owner after migration</strong></td>
-                    <td>0.5</td>
-                    <td>1</td>
-                    <td><strong>0.5</strong></td>
-                    <td>Governance Custodian</td>
-                    <td>System blocks migration unless a named custodian is assigned; 90-day review notifications.</td>
-                  </tr>
+                <tbody id="risks-table-body">
+                  <!-- Rendered dynamically by script.js -->
                 </tbody>
               </table>
             </div>
@@ -144,19 +126,42 @@
 
         <!-- Project Schedule & Licence Analysis -->
         <div class="panel">
-          <div class="panel-header">
-            <h3>Project Schedule Analysis &amp; Mathematical Breakdown</h3>
-            <span class="badge badge-amber">Baseline 42-Week Duration</span>
+          <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <h3>Interactive Schedule Capacity Simulator (Effort: 630 person-days)</h3>
+            <span id="schedule-badge" class="badge badge-amber">Baseline 42-Week Duration</span>
           </div>
           <div class="panel-body">
+            <!-- Capacity Slider Simulator -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 16px 20px; border-radius: var(--radius-md); margin-bottom: 20px;">
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 12px;">
+                <div>
+                  <label for="capacity-slider" style="font-weight: 700; font-size: 13px; color: var(--text-main);">
+                    Simulate Weekly Resource Capacity: <span id="capacity-display" style="color: var(--primary-color); font-size: 16px;">15</span> person-days / week
+                  </label>
+                  <p style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Default Case Study: 3 p-d/wk (TW) + 12 p-d/wk (12 Teams × 1 p-d) = 15 p-d/wk</p>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                  <button id="btn-cap-reset" class="btn btn-secondary btn-sm">Reset to 15</button>
+                  <button id="btn-cap-boost" class="btn btn-outline-primary btn-sm">⚡ Uplift to 17 (Fix Overrun)</button>
+                </div>
+              </div>
+              <input type="range" id="capacity-slider" min="10" max="25" step="0.5" value="15" style="width: 100%; accent-color: var(--primary-color); cursor: pointer;">
+              <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-muted); margin-top: 4px;">
+                <span>10 p-d/wk (Severely Delayed)</span>
+                <span>15 p-d/wk (Baseline: 42 Wks)</span>
+                <span>16.2 p-d/wk (Break-even: 39 Wks)</span>
+                <span>25 p-d/wk (Aggressive: 25 Wks)</span>
+              </div>
+            </div>
+
             <div class="data-table-wrapper" style="margin-bottom: 16px;">
               <table class="data-table">
                 <thead>
                   <tr>
                     <th>Parameter</th>
-                    <th>Case Study Value</th>
+                    <th>Case Study Baseline</th>
                     <th>Mathematical Formula</th>
-                    <th>Calculated Result</th>
+                    <th>Interactive Simulation Result</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -167,58 +172,40 @@
                     <td>14,000 pages</td>
                   </tr>
                   <tr>
-                    <td>Outdated Pages Ratio</td>
-                    <td>50%</td>
-                    <td>14,000 × 50%</td>
-                    <td>7,000 pages</td>
-                  </tr>
-                  <tr>
                     <td>Kept Pages to Migrate</td>
-                    <td>50%</td>
+                    <td>7,000 pages (50%)</td>
                     <td>14,000 × 50%</td>
                     <td><strong>7,000 pages</strong></td>
                   </tr>
                   <tr>
-                    <td>Triage Effort</td>
-                    <td>40 pages / person-day</td>
-                    <td>14,000 / 40</td>
-                    <td><strong>350 person-days</strong></td>
-                  </tr>
-                  <tr>
-                    <td>Migration Effort</td>
-                    <td>25 pages / person-day</td>
-                    <td>7,000 / 25</td>
-                    <td><strong>280 person-days</strong></td>
-                  </tr>
-                  <tr style="background: var(--bg-secondary); font-weight: 700;">
-                    <td>Total Project Effort</td>
-                    <td>Combined Triage + Migration</td>
-                    <td>350 + 280</td>
+                    <td>Triage + Migration Effort</td>
+                    <td>350 + 280 p-d</td>
+                    <td>(14,000/40) + (7,000/25)</td>
                     <td><strong>630 person-days</strong></td>
                   </tr>
                   <tr>
-                    <td>Weekly Capacity</td>
-                    <td>TW: 3 p-d/wk | 12 Teams: 12 p-d/wk</td>
-                    <td>3 + 12</td>
-                    <td><strong>15 person-days / week</strong></td>
+                    <td>Weekly Team Capacity</td>
+                    <td>15 person-days / week</td>
+                    <td>Simulated Slider Input</td>
+                    <td><strong id="sim-table-capacity" style="color: var(--primary-color);">15.0 person-days / week</strong></td>
                   </tr>
                   <tr style="background: var(--bg-secondary); font-weight: 700;">
                     <td>Estimated Project Duration</td>
-                    <td>Total Effort / Weekly Capacity</td>
-                    <td>630 / 15</td>
-                    <td><strong>42.0 weeks</strong></td>
+                    <td>42.0 weeks</td>
+                    <td>Total Effort / Capacity (630 / C)</td>
+                    <td><strong id="sim-table-duration">42.0 weeks</strong></td>
                   </tr>
                   <tr>
                     <td>Available Licence Period</td>
-                    <td>9 months</td>
+                    <td>39.0 weeks (9 months)</td>
                     <td>9 × 4.33 weeks/month</td>
-                    <td><strong>39.0 weeks</strong></td>
+                    <td><strong>39.0 weeks (Immovable)</strong></td>
                   </tr>
-                  <tr style="background: #fef2f2; color: #991b1b; font-weight: 700;">
-                    <td>Schedule Overrun Gap</td>
-                    <td>Duration − Licence Limit</td>
-                    <td>42.0 − 39.0</td>
-                    <td><strong style="color: var(--danger-color);">+3.0 weeks overrun (Conflict)</strong></td>
+                  <tr id="sim-overrun-row" style="background: #fef2f2; color: #991b1b; font-weight: 700;">
+                    <td>Schedule Status / Gap</td>
+                    <td>+3.0 weeks overrun (Conflict)</td>
+                    <td>Duration − 39.0</td>
+                    <td><strong id="sim-table-gap" style="color: var(--danger-color);">+3.0 weeks schedule deficit</strong></td>
                   </tr>
                 </tbody>
               </table>

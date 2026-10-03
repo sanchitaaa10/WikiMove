@@ -2,13 +2,1644 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=UI/index.html">
-  <title>Redirecting to WikiMove UI...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WikiMove – Academic Project Portfolio & Interactive Prototype Suite</title>
+  <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="/landing.css">
+  <link rel="stylesheet" href="/UI/landing.css">
+  <style id="embedded-landing-css">
+/* WikiMove – Executive Landing Page Design System */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap');
+
+:root {
+  --lp-bg: #090d16;
+  --lp-bg-card: rgba(18, 25, 41, 0.75);
+  --lp-bg-card-hover: rgba(28, 38, 62, 0.85);
+  --lp-border: rgba(255, 255, 255, 0.08);
+  --lp-border-focus: rgba(99, 102, 241, 0.4);
+  --lp-text-primary: #f8fafc;
+  --lp-text-secondary: #94a3b8;
+  --lp-text-muted: #64748b;
+  --lp-primary: #6366f1;
+  --lp-primary-glow: rgba(99, 102, 241, 0.35);
+  --lp-cyan: #06b6d4;
+  --lp-cyan-glow: rgba(6, 182, 212, 0.3);
+  --lp-emerald: #10b981;
+  --lp-emerald-glow: rgba(16, 185, 129, 0.25);
+  --lp-amber: #f59e0b;
+  --lp-rose: #f43f5e;
+  --lp-gradient-hero: linear-gradient(135deg, #6366f1 0%, #06b6d4 50%, #3b82f6 100%);
+  --lp-gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.landing-page {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--lp-bg);
+  color: var(--lp-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Ambient Lighting */
+.bg-glow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.45;
+}
+
+.glow-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #4f46e5 0%, transparent 70%);
+  top: -150px;
+  left: -100px;
+}
+
+.glow-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #06b6d4 0%, transparent 70%);
+  top: 20%;
+  right: -100px;
+}
+
+.glow-3 {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+  bottom: 10%;
+  left: 30%;
+  opacity: 0.25;
+}
+
+.landing-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Navbar */
+.landing-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  background: rgba(9, 13, 22, 0.8);
+  border-bottom: 1px solid var(--lp-border);
+  padding: 16px 0;
+  transition: all 0.3s ease;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo-box {
+  width: 38px;
+  height: 38px;
+  background: var(--lp-gradient-hero);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 20px;
+  color: #fff;
+  box-shadow: 0 0 20px var(--lp-primary-glow);
+  font-family: 'Outfit', sans-serif;
+}
+
+.nav-brand-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 40%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.nav-brand-badge {
+  font-size: 11px;
+  color: var(--lp-cyan);
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--lp-text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.nav-cta {
+  background: var(--lp-gradient-hero);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: 0 4px 14px var(--lp-primary-glow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 80px 0 60px;
+  text-align: center;
+  position: relative;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #c7d2fe;
+  margin-bottom: 24px;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+.hero-pill-pulse {
+  width: 8px;
+  height: 8px;
+  background: #34d399;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #34d399;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.hero-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 54px;
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+  max-width: 960px;
+  margin: 0 auto 20px;
+}
+
+.hero-title-gradient {
+  background: linear-gradient(135deg, #ffffff 30%, #93c5fd 60%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: var(--lp-text-secondary);
+  max-width: 780px;
+  margin: 0 auto 36px;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 54px;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+  background: var(--lp-gradient-hero);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 10px 25px var(--lp-primary-glow);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(99, 102, 241, 0.65);
+}
+
+.btn-hero-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--lp-border);
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-hero-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Student & Evaluator Trust Bar */
+.academic-credentials-bar {
+  background: rgba(18, 25, 41, 0.85);
+  border: 1px solid var(--lp-border);
+  border-radius: 16px;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+}
+
+.cred-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cred-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.cred-info h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.cred-info p {
+  font-size: 12px;
+  color: var(--lp-text-muted);
+}
+
+/* Metric Counter Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 70px;
+}
+
+.stat-box {
+  background: var(--lp-bg-card);
+  border: 1px solid var(--lp-border);
+  border-radius: 14px;
+  padding: 22px 18px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.stat-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--lp-gradient-hero);
+  opacity: 0.8;
+}
+
+.stat-box:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.stat-value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--lp-text-primary);
+  margin-bottom: 4px;
+}
+
+.stat-sub {
+  font-size: 11px;
+  color: var(--lp-text-muted);
+}
+
+/* Section Common Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--lp-cyan);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  font-size: 15px;
+  color: var(--lp-text-secondary);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Screen Prototype Showcase Grid */
+.prototype-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  margin-bottom: 80px;
+}
+
+.proto-card {
+  background: var(--lp-bg-card);
+  border: 1px solid var(--lp-border);
+  border-radius: 16px;
+  padding: 26px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(12px);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.proto-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px var(--lp-primary-glow);
+  background: var(--lp-bg-card-hover);
+}
+
+.proto-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.proto-screen-pill {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.proto-icon {
+  font-size: 24px;
+}
+
+.proto-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.proto-desc {
+  font-size: 13px;
+  color: var(--lp-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.proto-features {
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.proto-features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.proto-features li span.bullet {
+  color: var(--lp-emerald);
+  font-weight: bold;
+}
+
+.proto-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--lp-cyan);
+  padding-top: 14px;
+  border-top: 1px solid var(--lp-border);
+  transition: color 0.2s ease;
+}
+
+.proto-card:hover .proto-btn {
+  color: #fff;
+}
+
+/* Interactive Mathematical Model & Simulator */
+.model-box {
+  background: var(--lp-bg-card);
+  border: 1px solid var(--lp-border);
+  border-radius: 20px;
+  padding: 36px;
+  margin-bottom: 80px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.model-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.calc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.calc-table th {
+  text-align: left;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--lp-text-secondary);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--lp-border);
+}
+
+.calc-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+}
+
+.calc-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.sim-widget {
+  background: rgba(28, 38, 62, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.sim-slider-container {
+  margin: 20px 0;
+}
+
+.sim-slider {
+  width: 100%;
+  accent-color: var(--lp-primary);
+  cursor: pointer;
+  height: 6px;
+  border-radius: 4px;
+}
+
+.sim-result-box {
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid var(--lp-border);
+  margin-top: 18px;
+}
+
+/* Documentation Deliverables Hub */
+.docs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 80px;
+}
+
+.doc-card {
+  background: var(--lp-bg-card);
+  border: 1px solid var(--lp-border);
+  border-radius: 14px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+}
+
+.doc-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.doc-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.doc-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.doc-desc {
+  font-size: 12px;
+  color: var(--lp-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.doc-links {
+  display: flex;
+  gap: 8px;
+}
+
+.doc-link-btn {
+  flex: 1;
+  text-align: center;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.15s ease;
+}
+
+.doc-link-pdf {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+.doc-link-pdf:hover { background: rgba(239, 68, 68, 0.25); color: #fff; }
+
+.doc-link-docx {
+  background: rgba(37, 99, 235, 0.15);
+  color: #93c5fd;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+}
+.doc-link-docx:hover { background: rgba(37, 99, 235, 0.25); color: #fff; }
+
+.doc-link-md {
+  background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  border: 1px solid var(--lp-border);
+}
+.doc-link-md:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+
+/* UML Gallery Tabs */
+.diagrams-hub {
+  background: var(--lp-bg-card);
+  border: 1px solid var(--lp-border);
+  border-radius: 20px;
+  padding: 32px;
+  margin-bottom: 80px;
+}
+
+.tab-nav {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--lp-border);
+}
+
+.tab-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--lp-border);
+  color: var(--lp-text-secondary);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.tab-btn.active {
+  background: var(--lp-primary);
+  color: #fff;
+  border-color: var(--lp-primary);
+  box-shadow: 0 4px 12px var(--lp-primary-glow);
+}
+
+.diagram-viewer {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+
+.diagram-viewer img {
+  max-width: 100%;
+  max-height: 600px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/* Evaluation Checklist */
+.checklist-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 20px;
+  padding: 36px;
+  margin-bottom: 80px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--lp-border);
+}
+
+.check-icon {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.check-content h5 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.check-content p {
+  font-size: 12px;
+  color: var(--lp-text-secondary);
+  line-height: 1.5;
+}
+
+/* Footer */
+.landing-footer {
+  border-top: 1px solid var(--lp-border);
+  padding: 40px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--lp-text-muted);
+}
+
+.landing-footer a {
+  color: var(--lp-cyan);
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .hero-title { font-size: 38px; }
+  .model-grid { grid-template-columns: 1fr; }
+  .academic-credentials-bar { flex-direction: column; align-items: flex-start; }
+  .nav-links { display: none; }
+}
+
+  </style>
 </head>
-<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f8fafc;">
-  <div style="text-align: center;">
-    <h2 style="color: #1e3a8a;">Redirecting to WikiMove Prototype...</h2>
-    <p style="color: #64748b;">If you are not redirected automatically, <a href="UI/index.html" style="color: #2563eb; font-weight: 600;">click here to open WikiMove Portal</a>.</p>
+<body class="landing-page">
+
+  <!-- Ambient Glowing Background Orbs -->
+  <div class="bg-glow-container">
+    <div class="glow-orb glow-1"></div>
+    <div class="glow-orb glow-2"></div>
+    <div class="glow-orb glow-3"></div>
   </div>
+
+  <!-- Sticky Navbar -->
+  <header class="landing-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-logo-box">W</div>
+        <div>
+          <span class="nav-brand-title">WikiMove</span>
+          <span class="nav-brand-badge">Academic 2026</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#prototypes" class="nav-link">Live Screens</a></li>
+        <li><a href="#estimation" class="nav-link">Mathematical Model</a></li>
+        <li><a href="#risks" class="nav-link">Risk Register</a></li>
+        <li><a href="#diagrams" class="nav-link">UML Diagrams</a></li>
+        <li><a href="#deliverables" class="nav-link">Documentation Hub</a></li>
+        <li><a href="#checklist" class="nav-link">Evaluation Checklist</a></li>
+      </ul>
+
+      <a href="UI/dashboard.html" class="nav-cta">
+        <span>🚀 Launch Dashboard</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="landing-container">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-pill">
+        <span class="hero-pill-pulse"></span>
+        <span>Software Engineering &amp; Project Management Academic Portfolio (Final Submission 2026)</span>
+      </div>
+
+      <h1 class="hero-title">
+        Enterprise Knowledge Base Migration &amp; <span class="hero-title-gradient">Automated Governance</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        A mathematically rigorous, 630 person-day migration framework tackling 14,000 legacy wiki pages across 12 engineering teams within an immovable 39-week licence window.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#prototypes" class="btn-hero-primary">
+          <span>🚀 Explore Interactive Prototype (6 Screens)</span>
+        </a>
+        <a href="#deliverables" class="btn-hero-secondary">
+          <span>📑 View Academic Documentation (PDF / DOCX)</span>
+        </a>
+      </div>
+
+      <!-- Academic Student Credentials Bar -->
+      <div class="academic-credentials-bar">
+        <div class="cred-item">
+          <div class="cred-icon">👩‍💻</div>
+          <div class="cred-info">
+            <h4>Sanchita Suryawanshi</h4>
+            <p>Author / Student • Roll No: <strong>150096724115</strong></p>
+          </div>
+        </div>
+
+        <div class="cred-item">
+          <div class="cred-icon">📚</div>
+          <div class="cred-info">
+            <h4>Software Engineering &amp; Project Management</h4>
+            <p>Final Academic Portfolio Submission</p>
+          </div>
+        </div>
+
+        <div class="cred-item">
+          <div class="cred-icon">⚡</div>
+          <div class="cred-info">
+            <h4>Strict Technology Compliance</h4>
+            <p>100% Pure HTML5, CSS3, JavaScript &amp; Node.js (Zero Python)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Empirical Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-value">14,000</div>
+          <div class="stat-label">Total Legacy Pages</div>
+          <div class="stat-sub">11 Years of Content Debt</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-value" style="color: var(--lp-emerald);">7,000</div>
+          <div class="stat-label">Kept Pages (50%)</div>
+          <div class="stat-sub">Active &amp; Validated Content</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-value" style="color: var(--lp-cyan);">630</div>
+          <div class="stat-label">Person-Days Effort</div>
+          <div class="stat-sub">350 Triage + 280 Migration</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-value">15</div>
+          <div class="stat-label">Weekly Capacity</div>
+          <div class="stat-sub">TW (3) + 12 Teams (12 p-d/wk)</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-value" style="color: var(--lp-rose);">+3.0 Wks</div>
+          <div class="stat-label">Schedule Overrun Gap</div>
+          <div class="stat-sub">42.0 Wk Baseline vs 39 Wk Licence</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-value" style="color: #a5b4fc;">100%</div>
+          <div class="stat-label">Zero-Orphan Policy</div>
+          <div class="stat-sub">Rule R4 Lifecycle Governance</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Prototype Showcase (The 6 Screens) -->
+    <section id="prototypes" style="padding-top: 40px;">
+      <div class="section-header">
+        <span class="section-tag">Interactive Simulation</span>
+        <h2 class="section-title">The 6 Interactive Prototype Screens</h2>
+        <p class="section-desc">
+          Click any screen below to experience real-time filtering, live searching, batch creation, owner assignment, and mathematical simulations.
+        </p>
+      </div>
+
+      <div class="prototype-grid">
+
+        <!-- Screen 1 -->
+        <a href="UI/dashboard.html" class="proto-card">
+          <div class="proto-top">
+            <span class="proto-screen-pill">Screen 1</span>
+            <span class="proto-icon">📊</span>
+          </div>
+          <h3 class="proto-title">Executive Dashboard</h3>
+          <p class="proto-desc">
+            High-level executive command center displaying real-time KPI metrics, triage velocity (40 p/d), migration progress, and 39-week licence countdown.
+          </p>
+          <ul class="proto-features">
+            <li><span class="bullet">✓</span> Real-time reactive burn-down chart</li>
+            <li><span class="bullet">✓</span> Licencing gap alert (+3.0 weeks overrun)</li>
+            <li><span class="bullet">✓</span> Clickable KPI cards linking to queues</li>
+          </ul>
+          <div class="proto-btn">
+            <span>Launch Screen 1</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Screen 2 -->
+        <a href="UI/triage.html" class="proto-card">
+          <div class="proto-top">
+            <span class="proto-screen-pill">Screen 2</span>
+            <span class="proto-icon">📋</span>
+          </div>
+          <h3 class="proto-title">Page Triage Queue</h3>
+          <p class="proto-desc">
+            Operational triage queue for 12 engineering teams to filter and classify pages as Keep (50%), Archive (compliance), or Delete (redundant).
+          </p>
+          <ul class="proto-features">
+            <li><span class="bullet">✓</span> Live search &amp; 12 engineering team filters</li>
+            <li><span class="bullet">✓</span> Interactive ➕ Add New Page modal dialog</li>
+            <li><span class="bullet">✓</span> One-click Keep / Archive / Delete actions</li>
+          </ul>
+          <div class="proto-btn">
+            <span>Launch Screen 2</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Screen 3 -->
+        <a href="UI/review.html" class="proto-card">
+          <div class="proto-top">
+            <span class="proto-screen-pill">Screen 3</span>
+            <span class="proto-icon">🔍</span>
+          </div>
+          <h3 class="proto-title">Page Review &amp; Inspection</h3>
+          <p class="proto-desc">
+            Split-view document inspection suite displaying legacy content, word counts, hyperlink integrity, and mandatory named owner assignment.
+          </p>
+          <ul class="proto-features">
+            <li><span class="bullet">✓</span> Dynamic page switcher dropdown</li>
+            <li><span class="bullet">✓</span> Mandatory custodian binding (Prevents R4)</li>
+            <li><span class="bullet">✓</span> Review notes &amp; automated audit trail</li>
+          </ul>
+          <div class="proto-btn">
+            <span>Launch Screen 3</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Screen 4 -->
+        <a href="UI/migration.html" class="proto-card">
+          <div class="proto-top">
+            <span class="proto-screen-pill">Screen 4</span>
+            <span class="proto-icon">🚀</span>
+          </div>
+          <h3 class="proto-title">Migration Status Tracking</h3>
+          <p class="proto-desc">
+            Sprint pipeline tracking for the 7,000 kept pages at 25 pages/person-day velocity, with validation gates and hyperlink integrity testing.
+          </p>
+          <ul class="proto-features">
+            <li><span class="bullet">✓</span> Interactive 📦 Create New Batch modal</li>
+            <li><span class="bullet">✓</span> Batch advancement (Queued → Certified)</li>
+            <li><span class="bullet">✓</span> Automated regex hyperlink scan (NFR-01)</li>
+          </ul>
+          <div class="proto-btn">
+            <span>Launch Screen 4</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Screen 5 -->
+        <a href="UI/ownership.html" class="proto-card">
+          <div class="proto-top">
+            <span class="proto-screen-pill">Screen 5</span>
+            <span class="proto-icon">👥</span>
+          </div>
+          <h3 class="proto-title">Ownership &amp; Governance</h3>
+          <p class="proto-desc">
+            Active content custody registry binding every migrated page to an active engineer to enforce 90-day periodic revalidation and eliminate orphan decay.
+          </p>
+          <ul class="proto-features">
+            <li><span class="bullet">✓</span> ⚡ Bulk Reassign Orphans to Technical Writer</li>
+            <li><span class="bullet">✓</span> Edit Owner modal &amp; 90-day review scheduler</li>
+            <li><span class="bullet">✓</span> 99.3% custody coverage metric tracking</li>
+          </ul>
+          <div class="proto-btn">
+            <span>Launch Screen 5</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Screen 6 -->
+        <a href="UI/risks.html" class="proto-card">
+          <div class="proto-top">
+            <span class="proto-screen-pill">Screen 6</span>
+            <span class="proto-icon">⚠️</span>
+          </div>
+          <h3 class="proto-title">Risk &amp; Schedule Simulator</h3>
+          <p class="proto-desc">
+            Quantitative risk register ranking risks by Exposure (E = P × I) and an interactive team capacity simulator demonstrating schedule gap resolution.
+          </p>
+          <ul class="proto-features">
+            <li><span class="bullet">✓</span> Real-time editable Probability &amp; Impact</li>
+            <li><span class="bullet">✓</span> Dynamic Exposure calculation &amp; re-ranking</li>
+            <li><span class="bullet">✓</span> Interactive Weekly Capacity slider widget</li>
+          </ul>
+          <div class="proto-btn">
+            <span>Launch Screen 6</span>
+            <span>→</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Mathematical Model & Interactive Capacity Simulator -->
+    <section id="estimation" style="padding-top: 40px;">
+      <div class="section-header">
+        <span class="section-tag">Mathematical Rigor</span>
+        <h2 class="section-title">Case Study Effort &amp; Schedule Model</h2>
+        <p class="section-desc">
+          Strict mathematical formulation showing how 630 person-days of effort encounters a +3.0 week licence overrun, and how capacity uplifts resolve it.
+        </p>
+      </div>
+
+      <div class="model-box">
+        <div class="model-grid">
+          <!-- Table of Formulas -->
+          <div>
+            <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 16px; font-family: 'Outfit', sans-serif;">
+              📐 Primary Estimation Formulas &amp; Derived Metrics
+            </h3>
+            <table class="calc-table">
+              <thead>
+                <tr>
+                  <th>Phase / Parameter</th>
+                  <th>Formula</th>
+                  <th>Empirical Calculation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Triage Effort</strong></td>
+                  <td><code>14,000 / 40 p-d</code></td>
+                  <td><strong>350 person-days</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Migration Effort</strong></td>
+                  <td><code>7,000 / 25 p-d</code></td>
+                  <td><strong>280 person-days</strong></td>
+                </tr>
+                <tr style="background: rgba(99, 102, 241, 0.1);">
+                  <td><strong>Total Project Effort</strong></td>
+                  <td><code>Triage + Migration</code></td>
+                  <td><strong style="color: var(--lp-cyan);">630 person-days</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Weekly Capacity</strong></td>
+                  <td><code>3 (TW) + 12 (Teams)</code></td>
+                  <td><strong>15 person-days / week</strong></td>
+                </tr>
+                <tr style="background: rgba(245, 158, 11, 0.1);">
+                  <td><strong>Estimated Duration</strong></td>
+                  <td><code>630 / 15</code></td>
+                  <td><strong style="color: var(--lp-amber);">42.0 weeks</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Licence Period</strong></td>
+                  <td><code>9 mos × 4.33</code></td>
+                  <td><strong>39.0 weeks</strong></td>
+                </tr>
+                <tr style="background: rgba(239, 68, 68, 0.15);">
+                  <td><strong>Schedule Deficit Gap</strong></td>
+                  <td><code>42.0 − 39.0</code></td>
+                  <td><strong style="color: var(--lp-rose);">+3.0 weeks overrun (Conflict)</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Embedded Interactive Capacity Simulator -->
+          <div class="sim-widget">
+            <h4 style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 6px;">
+              ⚡ Live Capacity Simulator
+            </h4>
+            <p style="font-size: 12px; color: var(--lp-text-secondary); margin-bottom: 16px;">
+              Drag the slider to test resource adjustments and see the 42-week schedule resolve in real time:
+            </p>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 13px; font-weight: 600;">Resource Capacity:</span>
+              <span id="lp-cap-val" style="font-size: 18px; font-weight: 800; color: var(--lp-cyan);">15.0</span>
+              <span style="font-size: 12px; color: var(--lp-text-muted);">p-d / week</span>
+            </div>
+
+            <div class="sim-slider-container">
+              <input type="range" id="lp-cap-slider" class="sim-slider" min="10" max="25" step="0.5" value="15">
+              <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--lp-text-muted); margin-top: 4px;">
+                <span>10 p-d (Delayed)</span>
+                <span>15 p-d (Baseline)</span>
+                <span>16.2 p-d (Breakeven)</span>
+                <span>25 p-d (Fast)</span>
+              </div>
+            </div>
+
+            <div class="sim-result-box">
+              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px;">
+                <span>Estimated Duration:</span>
+                <strong id="lp-duration-val" style="color: #fff;">42.0 weeks</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px;">
+                <span>Available Licence:</span>
+                <strong style="color: #cbd5e1;">39.0 weeks</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; padding-top: 6px; border-top: 1px solid var(--lp-border);">
+                <span>Schedule Status:</span>
+                <strong id="lp-status-val" style="color: var(--lp-rose);">+3.0 Wks Deficit</strong>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 8px; margin-top: 16px;">
+              <button id="lp-btn-reset" class="btn-hero-secondary" style="flex: 1; padding: 8px; font-size: 12px; justify-content: center;">Reset 15</button>
+              <button id="lp-btn-boost" class="btn-hero-primary" style="flex: 1; padding: 8px; font-size: 12px; justify-content: center;">Uplift to 17</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quantitative Risk Profile Section -->
+    <section id="risks" style="padding-top: 40px;">
+      <div class="section-header">
+        <span class="section-tag">Risk Exposure Ranking</span>
+        <h2 class="section-title">Quantitative Risk Profile (E = P × I)</h2>
+        <p class="section-desc">
+          Mathematical exposure ranking placing Risk R2 (Review inertia) at Rank 1, followed by R1 (Licence expiration) at Rank 2.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 80px;">
+        <!-- Risk 2 -->
+        <div class="stat-box" style="text-align: left; border-left: 4px solid var(--lp-rose);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 12px; font-weight: 800; color: var(--lp-rose);">RANK 1 • RISK R2</span>
+            <span style="font-size: 16px; font-weight: 900; color: var(--lp-rose);">E = 4.2</span>
+          </div>
+          <h4 style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px;">Teams do not review pages</h4>
+          <p style="font-size: 12px; color: var(--lp-text-secondary); margin-bottom: 12px;">P = 0.6 | I = 7. Review competes with sprint deliverables; zero dedicated buffer.</p>
+          <div style="font-size: 11px; color: #a5b4fc; background: rgba(99, 102, 241, 0.1); padding: 8px; border-radius: 6px;">
+            <strong>Mitigation:</strong> CTO executive mandate enforcing 1 p-d/wk per team + burndown audits.
+          </div>
+        </div>
+
+        <!-- Risk 1 -->
+        <div class="stat-box" style="text-align: left; border-left: 4px solid var(--lp-amber);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 12px; font-weight: 800; color: var(--lp-amber);">RANK 2 • RISK R1</span>
+            <span style="font-size: 16px; font-weight: 900; color: var(--lp-amber);">E = 3.6</span>
+          </div>
+          <h4 style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px;">Licence expires before completion</h4>
+          <p style="font-size: 12px; color: var(--lp-text-secondary); margin-bottom: 12px;">P = 0.4 | I = 9. 42-week effort exceeds immovable 39-week window.</p>
+          <div style="font-size: 11px; color: #a5b4fc; background: rgba(99, 102, 241, 0.1); padding: 8px; border-radius: 6px;">
+            <strong>Mitigation:</strong> 30-day bridging licence negotiation + parallelized core page migration.
+          </div>
+        </div>
+
+        <!-- Risk 3 -->
+        <div class="stat-box" style="text-align: left; border-left: 4px solid var(--lp-cyan);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 12px; font-weight: 800; color: var(--lp-cyan);">RANK 3 • RISK R3</span>
+            <span style="font-size: 16px; font-weight: 900; color: var(--lp-cyan);">E = 1.6</span>
+          </div>
+          <h4 style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px;">Broken links after migration</h4>
+          <p style="font-size: 12px; color: var(--lp-text-secondary); margin-bottom: 12px;">P = 0.4 | I = 4. Cross-document hyperlinks and macros fail on new platform.</p>
+          <div style="font-size: 11px; color: #a5b4fc; background: rgba(99, 102, 241, 0.1); padding: 8px; border-radius: 6px;">
+            <strong>Mitigation:</strong> Automated URL rewrite mapping + regex link scanner + legacy 301 tables.
+          </div>
+        </div>
+
+        <!-- Risk 4 -->
+        <div class="stat-box" style="text-align: left; border-left: 4px solid var(--lp-emerald);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 12px; font-weight: 800; color: var(--lp-emerald);">RANK 4 • RISK R4</span>
+            <span style="font-size: 16px; font-weight: 900; color: var(--lp-emerald);">E = 0.5</span>
+          </div>
+          <h4 style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px;">No owner after migration</h4>
+          <p style="font-size: 12px; color: var(--lp-text-secondary); margin-bottom: 12px;">P = 0.5 | I = 1. Migrated pages become unmaintained within 6 months.</p>
+          <div style="font-size: 11px; color: #a5b4fc; background: rgba(99, 102, 241, 0.1); padding: 8px; border-radius: 6px;">
+            <strong>Mitigation:</strong> Zero Orphan Policy: System blocks migration without named owner + 90-day audits.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive UML & Architecture Gallery -->
+    <section id="diagrams" style="padding-top: 40px;">
+      <div class="section-header">
+        <span class="section-tag">System Architecture</span>
+        <h2 class="section-title">Interactive UML &amp; Architecture Gallery</h2>
+        <p class="section-desc">
+          Click across the tabs to inspect all 7 system and software engineering diagrams rendered directly from vector SVG sources.
+        </p>
+      </div>
+
+      <div class="diagrams-hub">
+        <div class="tab-nav">
+          <button class="tab-btn active" data-diagram="Diagrams/Context_Diagram.svg" data-title="System Context Diagram (Level 0 Boundary)">Context Diagram</button>
+          <button class="tab-btn" data-diagram="Diagrams/Use_Case_Diagram.svg" data-title="UML Use Case Diagram (6 Actors, 11 Use Cases)">Use Case Diagram</button>
+          <button class="tab-btn" data-diagram="Diagrams/Class_Diagram.svg" data-title="UML Structural Class Diagram">Class Diagram</button>
+          <button class="tab-btn" data-diagram="Diagrams/Sequence_Diagram.svg" data-title="UML Sequence Diagram (Triage &amp; Migration Lifecycle)">Sequence Diagram</button>
+          <button class="tab-btn" data-diagram="Diagrams/Activity_Diagram.svg" data-title="UML Activity Decision Workflow">Activity Diagram</button>
+          <button class="tab-btn" data-diagram="Diagrams/State_Diagram.svg" data-title="UML State Machine Transition Model">State Diagram</button>
+          <button class="tab-btn" data-diagram="Diagrams/Architecture_Diagram.svg" data-title="4-Tier Layered Logical Architecture">Logical Architecture</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <h3 id="diagram-active-title" style="font-size: 16px; font-weight: 700; color: #fff;">
+            System Context Diagram (Level 0 Boundary)
+          </h3>
+          <a id="diagram-download-link" href="Diagrams/Context_Diagram.svg" target="_blank" class="btn-hero-secondary" style="padding: 6px 14px; font-size: 12px;">
+            <span>🔍 View Full SVG in New Tab</span>
+          </a>
+        </div>
+
+        <div class="diagram-viewer">
+          <img id="diagram-active-img" src="Diagrams/Context_Diagram.svg" alt="WikiMove UML Architecture Diagram">
+        </div>
+      </div>
+    </section>
+
+    <!-- Master Academic Deliverables Hub -->
+    <section id="deliverables" style="padding-top: 40px;">
+      <div class="section-header">
+        <span class="section-tag">Academic Documentation</span>
+        <h2 class="section-title">Master Deliverables &amp; Documentation Hub</h2>
+        <p class="section-desc">
+          Complete set of software engineering documentation available in editable Word (DOCX), printable PDF, and transparent Markdown.
+        </p>
+      </div>
+
+      <div class="docs-grid">
+
+        <!-- BRD -->
+        <div class="doc-card">
+          <div>
+            <span class="doc-badge">BR-01 to BR-12</span>
+            <h3 class="doc-title">Business Requirements Document (BRD)</h3>
+            <p class="doc-desc">
+              Comprehensive business case, MoSCoW prioritization, stakeholder matrix, capacity constraints, and operational goals.
+            </p>
+          </div>
+          <div class="doc-links">
+            <a href="Documentation/WikiMove_BRD.pdf" target="_blank" class="doc-link-btn doc-link-pdf">PDF</a>
+            <a href="Documentation/WikiMove_BRD.docx" download class="doc-link-btn doc-link-docx">DOCX</a>
+            <a href="Documentation/WikiMove_BRD.md" target="_blank" class="doc-link-btn doc-link-md">MD</a>
+          </div>
+        </div>
+
+        <!-- SRS -->
+        <div class="doc-card">
+          <div>
+            <span class="doc-badge">IEEE 830-1998 Compliant</span>
+            <h3 class="doc-title">Software Requirements Specification (SRS)</h3>
+            <p class="doc-desc">
+              Detailed functional specifications (FR-01..15), non-functional constraints (NFR-01..10), and complete bidirectional RTM.
+            </p>
+          </div>
+          <div class="doc-links">
+            <a href="Documentation/WikiMove_SRS.pdf" target="_blank" class="doc-link-btn doc-link-pdf">PDF</a>
+            <a href="Documentation/WikiMove_SRS.docx" download class="doc-link-btn doc-link-docx">DOCX</a>
+            <a href="Documentation/WikiMove_SRS.md" target="_blank" class="doc-link-btn doc-link-md">MD</a>
+          </div>
+        </div>
+
+        <!-- Project Management -->
+        <div class="doc-card">
+          <div>
+            <span class="doc-badge">CPM &amp; Gantt Schedule</span>
+            <h3 class="doc-title">Project Management &amp; Estimation Plan</h3>
+            <p class="doc-desc">
+              Work Breakdown Structure (WBS), Critical Path Method (CPM), 42-week Gantt schedule, and resource leveling models.
+            </p>
+          </div>
+          <div class="doc-links">
+            <a href="Documentation/WikiMove_Project_Management.pdf" target="_blank" class="doc-link-btn doc-link-pdf">PDF</a>
+            <a href="Documentation/WikiMove_Project_Management.docx" download class="doc-link-btn doc-link-docx">DOCX</a>
+            <a href="Documentation/WikiMove_Project_Management.md" target="_blank" class="doc-link-btn doc-link-md">MD</a>
+          </div>
+        </div>
+
+        <!-- Testing & QA -->
+        <div class="doc-card">
+          <div>
+            <span class="doc-badge">15 Planned Test Cases</span>
+            <h3 class="doc-title">Testing &amp; Quality Assurance Document</h3>
+            <p class="doc-desc">
+              Black-box test design, Boundary Value Analysis (BVA), Decision Tables, and Defect Removal Efficiency (DRE) metrics.
+            </p>
+          </div>
+          <div class="doc-links">
+            <a href="Documentation/WikiMove_Testing_QA.pdf" target="_blank" class="doc-link-btn doc-link-pdf">PDF</a>
+            <a href="Documentation/WikiMove_Testing_QA.docx" download class="doc-link-btn doc-link-docx">DOCX</a>
+            <a href="Documentation/WikiMove_Testing_QA.md" target="_blank" class="doc-link-btn doc-link-md">MD</a>
+          </div>
+        </div>
+
+        <!-- Risk Management -->
+        <div class="doc-card">
+          <div>
+            <span class="doc-badge">RMMM Plan</span>
+            <h3 class="doc-title">Risk Management &amp; RMMM Specification</h3>
+            <p class="doc-desc">
+              Quantitative risk analysis, 5x5 Probability-Impact matrix, and detailed Risk Mitigation, Monitoring &amp; Management plans.
+            </p>
+          </div>
+          <div class="doc-links">
+            <a href="Documentation/WikiMove_Risk_Management.pdf" target="_blank" class="doc-link-btn doc-link-pdf">PDF</a>
+            <a href="Documentation/WikiMove_Risk_Management.docx" download class="doc-link-btn doc-link-docx">DOCX</a>
+            <a href="Documentation/WikiMove_Risk_Management.md" target="_blank" class="doc-link-btn doc-link-md">MD</a>
+          </div>
+        </div>
+
+        <!-- Final Report -->
+        <div class="doc-card" style="border-color: rgba(99, 102, 241, 0.4); background: rgba(99, 102, 241, 0.08);">
+          <div>
+            <span class="doc-badge" style="background: var(--lp-primary); color: #fff;">Master Capstone Document</span>
+            <h3 class="doc-title">Comprehensive Final Project Report</h3>
+            <p class="doc-desc">
+              Master submission integrating all 20 required sections into a single authoritative academic record.
+            </p>
+          </div>
+          <div class="doc-links">
+            <a href="Documentation/WikiMove_Final_Report.pdf" target="_blank" class="doc-link-btn doc-link-pdf" style="background: #ef4444; color: #fff;">PDF</a>
+            <a href="Documentation/WikiMove_Final_Report.docx" download class="doc-link-btn doc-link-docx" style="background: #2563eb; color: #fff;">DOCX</a>
+            <a href="Documentation/WikiMove_Final_Report.md" target="_blank" class="doc-link-btn doc-link-md">MD</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Professor / Evaluator Verification Checklist -->
+    <section id="checklist" style="padding-top: 40px;">
+      <div class="section-header">
+        <span class="section-tag">Evaluation Criteria</span>
+        <h2 class="section-title">Academic Verification &amp; Compliance Checklist</h2>
+        <p class="section-desc">
+          Quick reference verifying full alignment with all course guidelines, technical constraints, and academic integrity rules.
+        </p>
+      </div>
+
+      <div class="checklist-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid var(--lp-border); padding-bottom: 16px;">
+          <div>
+            <h4 style="font-size: 18px; font-weight: 800; color: #fff;">Academic Evaluation &amp; Grading Summary</h4>
+            <p style="font-size: 13px; color: var(--lp-text-secondary);">Course: Software Engineering &amp; Project Management • Academic Year 2026</p>
+          </div>
+          <span style="font-size: 12px; font-weight: 700; color: #34d399; background: rgba(16, 185, 129, 0.15); padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(16, 185, 129, 0.3);">
+            ✓ 100% Compliant with Syllabus
+          </span>
+        </div>
+
+        <div class="checklist-grid">
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-content">
+              <h5>Strict Zero-Python Compliance</h5>
+              <p>100% free of .py or .ipynb files. Pure HTML5, CSS3, JavaScript, and Node.js in strict compliance with instructor instructions.</p>
+            </div>
+          </div>
+
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-content">
+              <h5>Mathematical Rigor &amp; Consistency</h5>
+              <p>Exactly 14,000 pages, 50% kept = 7,000 pages. Total effort = 630 p-d, 15 p-d/week capacity, 42-week baseline vs 39-week licence gap.</p>
+            </div>
+          </div>
+
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-content">
+              <h5>Quantitative Risk Ranking</h5>
+              <p>Formulated via E = P × I. Rank 1: R2 (E=4.2), Rank 2: R1 (E=3.6), Rank 3: R3 (E=1.6), Rank 4: R4 (E=0.5).</p>
+            </div>
+          </div>
+
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-content">
+              <h5>Academic Honesty in QA</h5>
+              <p>Zero fabricated test execution logs. All 15 test cases properly marked as Planned for execution during implementation.</p>
+            </div>
+          </div>
+
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-content">
+              <h5>Full RTM Traceability</h5>
+              <p>Bidirectional Requirements Traceability Matrix linking all 15 Functional Requirements (FR-01..15) to test verification cases.</p>
+            </div>
+          </div>
+
+          <div class="check-item">
+            <div class="check-icon">✓</div>
+            <div class="check-content">
+              <h5>Live Interactive Working Prototype</h5>
+              <p>6 fully interactive screens with instant filtering, modal creation, localStorage state persistence, and dynamic calculations.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Declaration Sign-off Block -->
+        <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--lp-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--lp-text-muted);">
+          <div>
+            <strong>Submitted by:</strong> Sanchita Suryawanshi (Roll No: 150096724115)<br>
+            <strong>Declaration:</strong> I hereby certify that this project represents original academic work conforming to SEPM guidelines.
+          </div>
+          <div style="text-align: right;">
+            <strong>Evaluated by:</strong> ____________________________<br>
+            <strong>Date / Signature:</strong> ____________________________
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modern Landing Page Footer -->
+  <footer class="landing-footer">
+    <div class="landing-container">
+      <p style="margin-bottom: 8px;">
+        <strong>WikiMove</strong> – Migrating a Company Knowledge Base to a New Platform
+      </p>
+      <p style="font-size: 12px; margin-bottom: 14px;">
+        Software Engineering &amp; Project Management Capstone Portfolio • Final Year Submission 2026
+      </p>
+      <p style="font-size: 11px; opacity: 0.8;">
+        Authored by Sanchita Suryawanshi (Roll No: 150096724115) • Built with HTML5, CSS3, Vanilla JavaScript, and Node.js
+      </p>
+    </div>
+  </footer>
+
+  <!-- Landing Page Interactive Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. UML Diagram Tab Switcher
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const activeImg = document.getElementById('diagram-active-img');
+      const activeTitle = document.getElementById('diagram-active-title');
+      const downloadLink = document.getElementById('diagram-download-link');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const diagramSrc = btn.dataset.diagram;
+          const title = btn.dataset.title;
+
+          if (activeImg) activeImg.src = diagramSrc;
+          if (activeTitle) activeTitle.textContent = title;
+          if (downloadLink) downloadLink.href = diagramSrc;
+        });
+      });
+
+      // 2. Landing Page Mini Capacity Simulator
+      const capSlider = document.getElementById('lp-cap-slider');
+      const capVal = document.getElementById('lp-cap-val');
+      const durationVal = document.getElementById('lp-duration-val');
+      const statusVal = document.getElementById('lp-status-val');
+      const btnReset = document.getElementById('lp-btn-reset');
+      const btnBoost = document.getElementById('lp-btn-boost');
+
+      function updateLpSim(capacity) {
+        const effort = 630;
+        const licence = 39.0;
+        const duration = (effort / capacity).toFixed(1);
+        const gap = (duration - licence).toFixed(1);
+
+        if (capVal) capVal.textContent = capacity.toFixed(1);
+        if (durationVal) durationVal.textContent = duration + ' weeks';
+
+        if (statusVal) {
+          if (gap > 0) {
+            statusVal.style.color = 'var(--lp-rose)';
+            statusVal.textContent = `+${gap} Wks Deficit (Overrun)`;
+          } else {
+            const buffer = Math.abs(gap).toFixed(1);
+            statusVal.style.color = 'var(--lp-emerald)';
+            statusVal.textContent = `On Schedule! (${buffer} Wks Buffer)`;
+          }
+        }
+      }
+
+      if (capSlider) {
+        capSlider.addEventListener('input', () => {
+          updateLpSim(parseFloat(capSlider.value));
+        });
+      }
+
+      if (btnReset) {
+        btnReset.addEventListener('click', () => {
+          if (capSlider) capSlider.value = 15;
+          updateLpSim(15);
+        });
+      }
+
+      if (btnBoost) {
+        btnBoost.addEventListener('click', () => {
+          if (capSlider) capSlider.value = 17;
+          updateLpSim(17);
+        });
+      }
+
+      updateLpSim(15);
+
+      // Smooth scroll for nav links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href').substring(1);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            targetEl.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

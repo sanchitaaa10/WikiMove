@@ -18,6 +18,7 @@
         </div>
       </div>
       <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html"><span>🏠</span> Portfolio Home</a></li>
         <li class="nav-item"><a href="dashboard.html"><span>📊</span> Dashboard</a></li>
         <li class="nav-item"><a href="triage.html"><span>📋</span> Page Triage</a></li>
         <li class="nav-item"><a href="review.html"><span>🔍</span> Page Review</a></li>
@@ -54,17 +55,17 @@
         <div class="metrics-grid">
           <div class="metric-card">
             <div class="metric-title">Migrated Kept Pages</div>
-            <div class="metric-value">2,100</div>
+            <div id="own-migrated-count" class="metric-value">2,100</div>
             <div class="metric-sub">Certified on Target Platform</div>
           </div>
           <div class="metric-card">
             <div class="metric-title">Assigned Named Owners</div>
-            <div class="metric-value" style="color: var(--success-color);">2,085</div>
-            <div class="metric-sub">99.3% Custody Coverage</div>
+            <div id="own-assigned-count" class="metric-value" style="color: var(--success-color);">2,085</div>
+            <div id="own-coverage-sub" class="metric-sub">99.3% Custody Coverage</div>
           </div>
           <div class="metric-card">
             <div class="metric-title">Unassigned / Orphaned</div>
-            <div class="metric-value" style="color: var(--danger-color);">15</div>
+            <div id="own-orphan-count" class="metric-value" style="color: var(--danger-color);">15</div>
             <div class="metric-sub">Escalated to Technical Writer</div>
           </div>
           <div class="metric-card">
@@ -74,11 +75,42 @@
           </div>
         </div>
 
+        <!-- Filter Bar -->
+        <div class="panel" style="margin-bottom: 16px;">
+          <div class="panel-body" style="padding: 14px 20px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between;">
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; flex-grow: 1;">
+              <input type="text" id="ownership-search" class="form-control" placeholder="Search page title or owner..." style="max-width: 280px;">
+              <select id="ownership-status-filter" class="form-control" style="max-width: 180px;">
+                <option value="All">All Ownership Statuses</option>
+                <option value="Active Custody">Active Custody</option>
+                <option value="Review Due Soon">Review Due Soon</option>
+                <option value="Orphan Alert (R4)">Orphan Alert (R4)</option>
+              </select>
+              <select id="ownership-team-filter" class="form-control" style="max-width: 190px;">
+                <option value="All">All Engineering Teams</option>
+                <option value="Team 1 - Payments Core">Team 1 - Payments Core</option>
+                <option value="Team 2 - Auth & Identity">Team 2 - Auth &amp; Identity</option>
+                <option value="Team 3 - Data Platform">Team 3 - Data Platform</option>
+                <option value="Team 3 - DevOps & Infra">Team 3 - DevOps &amp; Infra</option>
+                <option value="Team 4 - Search Platform">Team 4 - Search Platform</option>
+                <option value="Team 5 - Mobile Apps">Team 5 - Mobile Apps</option>
+              </select>
+              <button id="btn-reset-own-filters" class="btn btn-secondary btn-sm">Reset</button>
+            </div>
+            <div>
+              <span id="ownership-counter" style="font-size: 12px; color: var(--text-muted);">Showing <strong>7 Records</strong></span>
+            </div>
+          </div>
+        </div>
+
         <!-- Ownership Table Panel -->
         <div class="panel">
-          <div class="panel-header">
+          <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center;">
             <h3>Active Content Ownership Registry</h3>
-            <button class="btn btn-primary">Bulk Reassign Owners</button>
+            <div style="display: flex; gap: 10px;">
+              <button id="btn-bulk-reassign" class="btn btn-outline-primary btn-sm">⚡ Bulk Reassign Orphans to TW</button>
+              <button id="btn-add-custody" class="btn btn-primary btn-sm">+ Add Ownership Record</button>
+            </div>
           </div>
           <div class="panel-body">
             <div class="data-table-wrapper">
@@ -94,61 +126,8 @@
                     <th style="text-align: center;">Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Payment Gateway v2 API Specs</strong></td>
-                    <td>Team 1 - Payments Core</td>
-                    <td><span style="color: var(--text-muted);">Jane Doe (Departed)</span></td>
-                    <td><strong>Alex Rivera</strong> (Tech Lead)</td>
-                    <td>2026-11-15 (in 44 days)</td>
-                    <td><span class="badge badge-green">Active Custody</span></td>
-                    <td style="text-align: center;"><button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px;">Edit Owner</button></td>
-                  </tr>
-                  <tr>
-                    <td><strong>OAuth2 Architecture &amp; Token Claims</strong></td>
-                    <td>Team 2 - Auth &amp; Identity</td>
-                    <td><span style="color: var(--text-muted);">John Smith (Departed)</span></td>
-                    <td><strong>Priya Patel</strong> (Staff Architect)</td>
-                    <td>2026-11-20 (in 49 days)</td>
-                    <td><span class="badge badge-green">Active Custody</span></td>
-                    <td style="text-align: center;"><button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px;">Edit Owner</button></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Microservices Topology Map 2026</strong></td>
-                    <td>Team 1 - Payments Core</td>
-                    <td><span style="color: var(--text-muted);">Unassigned</span></td>
-                    <td><strong>Alex Rivera</strong> (Tech Lead)</td>
-                    <td>2026-12-10 (in 69 days)</td>
-                    <td><span class="badge badge-green">Active Custody</span></td>
-                    <td style="text-align: center;"><button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px;">Edit Owner</button></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Kafka Streaming Topic Conventions</strong></td>
-                    <td>Team 3 - Data Platform</td>
-                    <td><span style="color: var(--text-muted);">David Miller (Departed)</span></td>
-                    <td><strong>Marcus Chen</strong> (Sr Data Eng)</td>
-                    <td>2026-10-18 (in 16 days)</td>
-                    <td><span class="badge badge-amber">Review Due Soon</span></td>
-                    <td style="text-align: center;"><button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px;">Edit Owner</button></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Legacy Database Migration Scripts 2020</strong></td>
-                    <td>Team 3 - Data Platform</td>
-                    <td><span style="color: var(--text-muted);">Unknown</span></td>
-                    <td><span style="color: var(--danger-color); font-weight: 700;">Unassigned</span></td>
-                    <td>Overdue</td>
-                    <td><span class="badge badge-red">Orphan Alert (R4)</span></td>
-                    <td style="text-align: center;"><button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px; background: var(--danger-color);">Assign Now</button></td>
-                  </tr>
-                  <tr>
-                    <td><strong>Elasticsearch Cluster Sharding Guidelines</strong></td>
-                    <td>Team 4 - Search Platform</td>
-                    <td><span style="color: var(--text-muted);">Emily Watson</span></td>
-                    <td><strong>Emily Watson</strong> (Staff Eng)</td>
-                    <td>2027-01-05 (in 95 days)</td>
-                    <td><span class="badge badge-green">Active Custody</span></td>
-                    <td style="text-align: center;"><button class="btn btn-primary" style="padding: 4px 8px; font-size: 11px;">Edit Owner</button></td>
-                  </tr>
+                <tbody id="ownership-table-body">
+                  <!-- Rendered dynamically by script.js -->
                 </tbody>
               </table>
             </div>
